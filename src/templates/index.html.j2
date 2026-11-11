@@ -1,0 +1,6 @@
+{% extends "base.html.j2" %}
+{% block content %}
+{% for section_id in site.sections %}
+{% include "sections/" ~ section_id ~ ".html.j2" %}
+{% endfor %}
+{% endblock %}

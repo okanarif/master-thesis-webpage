@@ -1,0 +1,8 @@
+{#- Shared colour legend. keys index site.legend_labels; colours are --c-<key> tokens. -#}
+{% macro legend(keys, compact=false) -%}
+<ul class="legend{% if compact %} legend--compact{% endif %}" aria-label="Colour legend">
+  {%- for key in keys %}
+  <li class="legend__item"><span class="legend__chip legend__chip--{{ key }}" aria-hidden="true"></span>{{ site.legend_labels[key] }}</li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}

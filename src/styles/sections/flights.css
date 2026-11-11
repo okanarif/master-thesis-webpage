@@ -1,0 +1,2 @@
+.platform { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-3); align-items: start; }
+@media (max-width: 900px) { .platform { grid-template-columns: 1fr; } }

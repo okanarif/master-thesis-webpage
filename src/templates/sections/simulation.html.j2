@@ -1,0 +1,31 @@
+{% from "components/media.html.j2" import media %}
+{% from "components/compare_table.html.j2" import compare_table %}
+{% set s = content.simulation %}
+<section id="simulation" class="section section--simulation" aria-labelledby="simulation-title">
+  <div class="container">
+    <p class="section__kicker">{{ s.kicker }}</p>
+    <h2 id="simulation-title" class="section__title">{{ s.title }}</h2>
+    <div class="section__text">{% for p in s.text %}<p>{{ p }}</p>{% endfor %}</div>
+  </div>
+  <div class="container container--media">
+    {{ media(s.video, uid="sim-video") }}
+  </div>
+  <div class="container">
+    <h3 class="section__subtitle">{{ s.maps.title }}</h3>
+    <ul class="maps">
+      {% for m in s.maps.entries %}
+      <li class="maps__item">
+        <picture>
+          <source type="image/webp" srcset="{{ m.webp }}">
+          <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ dims(m.src).width }}" height="{{ dims(m.src).height }}" loading="lazy" decoding="async">
+        </picture>
+        <span class="maps__label">{{ m.label }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <h3 class="section__subtitle">{{ s.comparison.title }}</h3>
+    <p class="section__note">{{ s.comparison.intro }}</p>
+    {{ compare_table(s.comparison) }}
+    {% if flags[s.f3.flag] %}<div data-flag="{{ s.f3.flag }}">{{ media(s.f3, group="simulation") }}</div>{% endif %}
+  </div>
+</section>

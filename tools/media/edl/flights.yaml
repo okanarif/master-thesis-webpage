@@ -1,0 +1,9 @@
+# Per-flight web clips (priority 2) cut from the REAL video.
+# Flight segments measured from the title cards (see Website_Implementation_Plan, Appendix A).
+clips:
+  - { id: map_1, in: "0:05.0", out: "0:20.0", label: "map_1 · face-to-face obstacles" }
+  - { id: map_2, in: "0:33.0", out: "0:48.0", label: "map_2 · wide obstacles & walls" }
+  - { id: map_3, in: "1:00.0", out: "1:15.0", label: "map_3 · U-shaped trap" }
+  - { id: map_4, in: "1:26.0", out: "1:44.0", label: "map_4 · U-trap interior escape" }
+  - { id: map_5, in: "1:54.5", out: "2:02.0", label: "map_5 · S-shaped corridor" }
+  - { id: map_6, in: "2:06.0", out: "2:22.0", label: "map_6 · 3D hole passage" }

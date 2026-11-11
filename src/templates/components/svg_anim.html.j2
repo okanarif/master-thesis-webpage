@@ -1,0 +1,7 @@
+{#- Inline SVG animation from src/svg/<file>. CSS pauses it under reduced motion. -#}
+{% macro svg_anim(m) -%}
+<figure class="anim" role="img" aria-label="{{ m.alt }}">
+  <div class="anim__stage">{{ inline_svg(m.svg) }}</div>
+  {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}

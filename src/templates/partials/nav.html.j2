@@ -1,0 +1,13 @@
+<header class="nav" id="nav">
+  <nav class="nav__inner container" aria-label="Page sections">
+    <a class="nav__brand" href="#top">
+      <span class="nav__brand-name">{{ site.author.name }}</span>
+      <span class="nav__brand-sub">{{ site.affiliation.degree }} · {{ site.affiliation.group_short }}, {{ site.affiliation.university_short }}</span>
+    </a>
+    <ul class="nav__links">
+      {% for item in site.nav %}
+      <li><a href="#{{ item.id }}" data-nav="{{ item.id }}">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

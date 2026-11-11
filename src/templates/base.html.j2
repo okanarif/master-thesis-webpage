@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="{{ site.lang }}" data-theme="dark">
+<head>
+{% include "partials/head.html.j2" %}
+</head>
+<body>
+<a class="skip-link" href="#overview">Skip to content</a>
+{% include "partials/nav.html.j2" %}
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+{% include "partials/footer.html.j2" %}
+<script type="module" src="scripts/main.js"></script>
+</body>
+</html>

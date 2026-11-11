@@ -1,0 +1,35 @@
+{% from "components/media.html.j2" import media %}
+{% from "components/chapters.html.j2" import chapters %}
+{% from "components/video_loop.html.j2" import video_loop %}
+{% set s = content.flights %}
+<section id="flights" class="section section--flights" aria-labelledby="flights-title">
+  <div class="container">
+    <p class="section__kicker">{{ s.kicker }}</p>
+    <h2 id="flights-title" class="section__title">{{ s.title }}</h2>
+    <div class="section__text">
+      {% for p in s.text %}<p>{{ p }}</p>{% endfor %}
+      {% if flags.show_flight_numbers %}{% for p in s.text_numbers %}<p data-flag="show_flight_numbers">{{ p }}</p>{% endfor %}{% endif %}
+    </div>
+  </div>
+  <div class="container container--media">
+    {{ media(s.video, uid="flights-video") }}
+    {# in-page player: chapter buttons seek the <video>; YouTube: links carry the timestamp #}
+    {{ chapters(s.video.chapters, "flights-video", youtube_id=((s.video.id or false) if s.video.type == "youtube" else none)) }}
+    {% if flags[s.grid.flag] %}
+    <div class="flight-grid" data-flag="{{ s.grid.flag }}">
+      {% for g in s.grid.entries %}
+      {{ video_loop({"src": "assets/video/flights/" ~ g.id ~ ".mp4", "webm": "assets/video/flights/" ~ g.id ~ ".webm",
+                     "poster": "assets/video/flights/" ~ g.id ~ "-poster.jpg", "alt": g.label, "caption": g.label,
+                     "width": 1280, "height": 720}, cls="flight-grid__item") }}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="container">
+    <h3 class="section__subtitle">{{ s.platform.title }}</h3>
+    <div class="platform">
+      <div class="platform__main">{{ media(s.platform.photo) }}</div>
+      <div class="platform__detail">{{ media(s.platform.detail, group="platform") }}</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+.compare { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-2); background: var(--surface); }
+.compare__table th, .compare__table td { padding: 0.9rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.compare__table thead th { font-size: var(--fs--1); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); }
+.compare__table tbody th { font-weight: 650; color: var(--ink); white-space: nowrap; }
+.compare__table td { color: var(--ink-2); }
+.compare__table tbody tr:last-child th, .compare__table tbody tr:last-child td { border-bottom: 0; }
+.compare__table .compare__ours { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.compare__table thead .compare__ours { color: var(--accent); }
+
+@media (max-width: 720px) {
+  .compare__table, .compare__table thead, .compare__table tbody, .compare__table tr, .compare__table th, .compare__table td { display: block; }
+  .compare__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .compare__table tbody th { background: var(--surface-2); border-bottom: 0; }
+  .compare__table td { padding-left: 1rem; }
+  .compare__table td::before { content: attr(data-col); display: block; font-size: var(--fs--1); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.15rem; }
+  .compare__table td.compare__ours::before { color: var(--accent); }
+}

@@ -1,0 +1,68 @@
+/* Design tokens. Dark theme only (decision 2026-11-11). Semantic colours mirror the
+   thesis figures so the HTML legend matches the images. Edit colours here, nowhere else. */
+:root {
+  color-scheme: dark;
+
+  /* UI palette */
+  --bg: #0b0f14;
+  --bg-2: #0e131a;
+  --surface: #131a23;
+  --surface-2: #19222d;
+  --line: #233040;
+  --line-2: #2f3f53;
+  --ink: #e7edf3;
+  --ink-2: #c5cfda;
+  --muted: #8f9cac;
+  --accent: #6cc8ff;
+  --accent-2: #3aa6ea;
+  --accent-ink: #061420;
+  --focus: #ffd166;
+  --danger: #ff6b6b;
+
+  /* Semantic colours of the visual language (figures, legend, animations) */
+  --c-unknown: #6c7a8a;
+  --c-free: #f3f6f9;
+  --c-occupied: #e3312c;
+  --c-inflation: #ff7a1f;
+  --c-inflation-unknown: #e8c832;
+  --c-optimistic: #a9ecff;
+  --c-safe: #3fe06a;
+  --c-route: #f3a53a;
+  --c-trajectory: #4d8dff;
+  --c-goal: #1f9d3a;
+  --c-vehicle: #2563eb;
+
+  /* Type */
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fs--1: clamp(0.8rem, 0.78rem + 0.15vw, 0.875rem);
+  --fs-0: clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  --fs-1: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
+  --fs-2: clamp(1.375rem, 1.2rem + 0.9vw, 1.875rem);
+  --fs-3: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --fs-4: clamp(2rem, 1.5rem + 2.6vw, 3.25rem);
+  --lh-tight: 1.15;
+  --lh-body: 1.6;
+
+  /* Layout */
+  --w-text: 72ch;
+  --w-media: 1120px;
+  --w-wide: 1320px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --nav-h: 60px;
+
+  /* Shape and motion */
+  --r-1: 8px;
+  --r-2: 14px;
+  --r-pill: 999px;
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --dur: 200ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}

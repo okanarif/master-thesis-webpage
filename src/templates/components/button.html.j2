@@ -1,0 +1,8 @@
+{% from "components/icon.html.j2" import icon %}
+{#- Button-styled link. kind: primary | ghost. external adds rel/target and an icon. -#}
+{% macro button(label, href, kind="primary", icon_name=none, external=false) -%}
+<a class="btn btn--{{ kind }}" href="{{ href }}"{% if external %} target="_blank" rel="noopener noreferrer"{% endif %}>
+  {%- if icon_name %}{{ icon(icon_name) }}{% endif %}<span>{{ label }}</span>
+  {%- if external %}{{ icon("external") }}{% endif -%}
+</a>
+{%- endmacro %}

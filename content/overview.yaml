@@ -1,0 +1,16 @@
+id: overview
+title: "What this thesis is, and is not"
+cards:
+  - icon: solver
+    kicker: "The solver (not mine)"
+    title: "ACTOR, by Pries et al."
+    text: "ADMM over a union of convex sets: the route is chosen inside the optimization, without a mixed-integer solve. Pries, Arrizabalaga, Manchester, Ryll — IROS 2026."
+    link: { label: "Paper on arXiv", href: "https://arxiv.org/abs/2603.11335", external: true }
+  - icon: stack
+    kicker: "This work"
+    title: "The online stack around it"
+    text: "Everything needed to fly that solver online in unknown space: LiDAR mapping, map-wide convex decomposition, frontier selection, replanning and trajectory hand-off, and a ROS 2 architecture that keeps them out of the planner's loop."
+  - icon: validated
+    kicker: "Validated"
+    title: "Simulation and indoor flights"
+    text: "Simulation on four benchmark maps that start unknown, and six indoor flights on a quadrotor carrying a Livox Mid-360 3D LiDAR."

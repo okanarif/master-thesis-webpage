@@ -1,0 +1,105 @@
+id: method
+title: "How it works"
+kicker: "Five stages, one visual language"
+intro: "All figures share one legend. Unknown space is gray and is treated as an obstacle until the LiDAR sees it."
+legend: [unknown, free, occupied, inflation, optimistic, safe, route, trajectory, goal, vehicle]
+
+steps:
+  - id: mapping
+    title: "Perception & mapping"
+    text:
+      - "A probabilistic occupancy grid with three states, free, occupied and unknown, is built from LiDAR scans as a sliding window around the vehicle."
+      - "Unknown space stays an obstacle until the sensor sees it."
+    media:
+      type: image
+      src: assets/img/figures/perception.png
+      webp: assets/img/figures/perception.webp
+      alt: "Left: the occupancy grid after a LiDAR scan, with free cells, occupied cells and gray unknown wedges behind obstacles. Right: the same grid with inflation around occupied and unknown cells."
+      caption: "Occupancy grid from one LiDAR scan (left) and with inflation around occupied and unknown cells (right)."
+      width: 2400
+      height: 886
+
+  - id: decomposition
+    title: "Map-wide decomposition"
+    text:
+      - "Instead of inflating a corridor along one path, the whole local window is decomposed into overlapping boxes, twice."
+      - "Optimistic (unknown counts as free) to find routes; safe (unknown counts as occupied) to build the corridor."
+    media:
+      type: image
+      src: assets/img/figures/decomposition.png
+      webp: assets/img/figures/decomposition.webp
+      alt: "Left: optimistic decomposition, light blue boxes covering known and unknown space. Right: safe decomposition, green boxes only in known free space, gray unknown space excluded."
+      caption: "Optimistic pass (left) and safe pass (right) over the same window."
+      width: 2400
+      height: 886
+    schemas:
+      - { svg: schema-corridor-path.svg, label: "Corridor along one path" }
+      - { svg: schema-whole-window.svg, label: "Whole local window" }
+
+  - id: frontier
+    title: "Frontier selection"
+    text:
+      - "The optimistic route is projected onto the safe boxes; the deepest safe point becomes a terminal state with zero velocity."
+      - "Every plan ends at rest in known free space, so no separate backup trajectory is needed."
+    media:
+      type: image
+      src: assets/img/figures/frontier.png
+      webp: assets/img/figures/frontier.webp
+      alt: "Left: a route through the optimistic boxes toward a candidate goal. Right: the same route over the safe boxes, with the deepest safe point marked as the frontier target."
+      caption: "Route through the optimistic boxes (left); deepest point inside the safe boxes becomes the target (right)."
+      width: 2400
+      height: 886
+
+  - id: solver
+    title: "Trajectory optimization: the ACTOR solver"
+    text:
+      - "The solver assigns segments to boxes and optimizes the polynomial jointly by ADMM, so it can switch routes inside a single replan."
+      - "Solver by Pries et al. (IROS 2026); only its role in the stack is shown here, see their paper for the method."
+    link: { label: "Pries et al., IROS 2026", href: "https://arxiv.org/abs/2603.11335", external: true }
+    media:
+      type: video_loop
+      flag: show_g1_loop
+      src: assets/video/g1-route-switch.mp4
+      webm: assets/video/g1-route-switch.webm
+      poster: assets/img/posters/sim-map4-still.jpg
+      alt: "Simulated run in front of a U-shaped obstacle: the planned trajectory switches to a route around the cavity within one replan."
+      caption: "Route change in front of a U-shaped obstacle, simulation."
+      width: 1280
+      height: 720
+      fallback:
+        type: image
+        src: assets/img/posters/sim-map4-still.jpg
+        alt: "Simulated run on the map with deep U-shaped obstacles: safe boxes in green, the frontier route in orange and the planned trajectory leading around the cavity."
+        caption: "Simulation on the map with deep U-shaped obstacles: safe boxes, frontier route and planned trajectory."
+        width: 1920
+        height: 1080
+
+  - id: handoff
+    title: "Replanning & trajectory hand-off"
+    text:
+      - "Each new plan starts from a predicted state on the current plan, so velocity and acceleration stay continuous."
+      - "Mapping, decomposition and frontier selection run as separate ROS 2 nodes; the planner's timer never waits for them."
+    media:
+      type: svg_anim
+      flag: show_handoff_animation
+      svg: anim-handoff.svg
+      alt: "Animation: the vehicle follows the current trajectory while a new trajectory is computed from a look-ahead point and stitched on without a jump."
+      caption: "A new plan is stitched onto the current one at the look-ahead point."
+      fallback:
+        type: image
+        src: assets/img/figures/handoff.png
+        webp: assets/img/figures/handoff.webp
+        alt: "Diagram: the current trajectory in orange, a look-ahead window ahead of the vehicle, a green prefix kept from the current plan, and the new trajectory in blue starting where the prefix ends."
+        caption: "The prefix of the current plan is kept; the new plan starts at the look-ahead point."
+        width: 2400
+        height: 934
+    pipelines:
+      - title: "Sequential loop"
+        note: "path search, corridor and optimization run in order; their times add up"
+        stages: ["path search", "corridor", "optimize"]
+        loop: true
+      - title: "Decoupled nodes"
+        note: "mapping, decomposition and frontier selection publish continuously; the planner tick only optimizes"
+        upstream: ["mapping", "decomposition", "frontier"]
+        stages: ["optimize"]
+        loop: true

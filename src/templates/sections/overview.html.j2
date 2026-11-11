@@ -1,0 +1,10 @@
+{% from "components/card.html.j2" import card %}
+{% set s = content.overview %}
+<section id="overview" class="section section--overview" aria-labelledby="overview-title">
+  <div class="container">
+    <h2 id="overview-title" class="section__title">{{ s.title }}</h2>
+    <div class="cards">
+      {% for c in s.cards %}{{ card(c) }}{% endfor %}
+    </div>
+  </div>
+</section>

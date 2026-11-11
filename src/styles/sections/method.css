@@ -1,0 +1,12 @@
+.section--method .legend { margin-top: var(--space-2); }
+.steps { list-style: none; counter-reset: step; margin-top: var(--space-5); display: grid; gap: var(--space-5); }
+.step__inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-4); align-items: start; }
+.step__text { position: sticky; top: calc(var(--nav-h) + var(--space-3)); color: var(--ink-2); }
+.step__num { margin: 0 0 var(--space-1); font-family: var(--font-mono); color: var(--accent); font-size: var(--fs--1); letter-spacing: 0.1em; }
+.step__title { font-size: var(--fs-2); color: var(--ink); margin-bottom: var(--space-2); }
+.step__link { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 600; }
+.step__media { display: grid; gap: var(--space-2); }
+@media (max-width: 900px) {
+  .step__inner { grid-template-columns: 1fr; gap: var(--space-3); }
+  .step__text { position: static; }
+}

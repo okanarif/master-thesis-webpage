@@ -1,0 +1,18 @@
+{% from "components/icon.html.j2" import icon %}
+{#- Click-to-load YouTube player (youtube-nocookie). No request leaves the page until the visitor clicks.
+    While m.id is empty the poster is shown alone. -#}
+{% macro youtube(m, facade_id) -%}
+<figure class="yt" id="{{ facade_id }}" data-youtube="{{ m.id }}" data-title="{{ m.title }}">
+  <div class="yt__frame">
+    <img class="yt__poster" src="{{ m.poster }}" alt="{{ m.alt }}" width="{{ m.width }}" height="{{ m.height }}" loading="lazy" decoding="async">
+    {% if m.id %}
+    <button class="yt__play" type="button" data-youtube-play>
+      {{ icon("play") }}<span class="yt__play-label">Play video</span>
+      <span class="yt__play-note">loads from YouTube</span>
+    </button>
+    <noscript><a class="yt__nojs" href="https://www.youtube-nocookie.com/embed/{{ m.id }}" target="_blank" rel="noopener noreferrer">Open the video on YouTube</a></noscript>
+    {% endif %}
+  </div>
+  {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}

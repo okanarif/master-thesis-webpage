@@ -1,0 +1,21 @@
+<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img">
+  <rect x="8" y="8" width="304" height="164" rx="6" fill="none" stroke="var(--line-2)" stroke-width="2"/>
+  <rect x="96" y="30" width="26" height="46" fill="var(--c-occupied)"/>
+  <rect x="190" y="100" width="40" height="46" fill="var(--c-occupied)"/>
+  <rect x="150" y="26" width="46" height="18" fill="var(--c-occupied)"/>
+  <!-- overlapping boxes covering the whole window -->
+  <g fill="var(--c-safe)" fill-opacity="0.28" stroke="var(--c-safe)" stroke-width="1.5">
+    <rect x="18" y="18" width="74" height="146"/>
+    <rect x="18" y="82" width="168" height="82"/>
+    <rect x="126" y="18" width="20" height="146"/>
+    <rect x="126" y="50" width="176" height="46"/>
+    <rect x="200" y="18" width="102" height="78"/>
+    <rect x="234" y="18" width="68" height="146"/>
+    <rect x="18" y="18" width="128" height="8"/>
+  </g>
+  <!-- two of the possible routes -->
+  <path d="M34 120 L136 120 L140 72 L282 64" fill="none" stroke="var(--c-route)" stroke-width="3" stroke-dasharray="6 5"/>
+  <path d="M34 120 L60 40 L136 24 L240 36 L282 64" fill="none" stroke="var(--c-route)" stroke-width="3" stroke-dasharray="6 5" opacity="0.55"/>
+  <circle cx="34" cy="120" r="6" fill="var(--c-vehicle)"/>
+  <circle cx="286" cy="64" r="6" fill="var(--c-goal)"/>
+</svg>

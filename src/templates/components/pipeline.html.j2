@@ -1,0 +1,18 @@
+{#- Mini architecture schema: optional upstream nodes feeding a loop of stages. -#}
+{% macro pipeline(p) -%}
+<div class="pipeline">
+  <p class="pipeline__title">{{ p.title }}</p>
+  <div class="pipeline__row">
+    {% if p.upstream %}
+    <div class="pipeline__upstream" aria-label="asynchronous nodes">
+      {% for u in p.upstream %}<span class="pipeline__node pipeline__node--async">{{ u }}</span>{% endfor %}
+    </div>
+    <span class="pipeline__arrow pipeline__arrow--cache" aria-hidden="true"></span>
+    {% endif %}
+    <div class="pipeline__loop{% if p.loop %} pipeline__loop--cycle{% endif %}" aria-label="replanning loop">
+      {% for s in p.stages %}<span class="pipeline__node">{{ s }}</span>{% if not loop.last %}<span class="pipeline__arrow" aria-hidden="true"></span>{% endif %}{% endfor %}
+    </div>
+  </div>
+  <p class="pipeline__note">{{ p.note }}</p>
+</div>
+{%- endmacro %}

@@ -1,0 +1,24 @@
+{% from "components/button.html.j2" import button %}
+{% set s = content.about %}
+<section id="about" class="section section--about" aria-labelledby="about-title">
+  <div class="container">
+    <h2 id="about-title" class="section__title">{{ s.title }}</h2>
+    <div class="about">
+      <div class="about__bio">
+        {% for p in s.bio %}<p>{{ p }}</p>{% endfor %}
+        <div class="btn-row">
+          {% for b in s.buttons %}
+            {% if b.key == "linkedin" %}{% if site.author.linkedin %}{{ button(b.label, site.author.linkedin, b.kind, b.icon, true) }}{% endif %}
+            {% elif b.key == "email" %}{% if site.author.email %}{{ button(b.label, "mailto:" ~ site.author.email, b.kind, b.icon, false) }}{% endif %}
+            {% else %}{{ button(b.label, b.href, b.kind, b.icon, b.external) }}{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <aside class="about__side">
+        <p class="about__note">{{ site.ongoing_note }}</p>
+        <p class="about__ack"><strong>Acknowledgements.</strong> {{ s.acknowledgements }}</p>
+        {% if flags[s.logo.flag] %}<img class="about__logo" src="{{ s.logo.src }}" alt="{{ s.logo.alt }}" data-flag="{{ s.logo.flag }}">{% endif %}
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+{% from "components/icon.html.j2" import icon %}
+{% macro card(c) -%}
+<article class="card">
+  <div class="card__icon">{{ icon(c.icon) }}</div>
+  <p class="card__kicker">{{ c.kicker }}</p>
+  <h3 class="card__title">{{ c.title }}</h3>
+  <p class="card__text">{{ c.text }}</p>
+  {% if c.link %}<a class="card__link" href="{{ c.link.href }}"{% if c.link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ c.link.label }}{{ icon("external") }}</a>{% endif %}
+</article>
+{%- endmacro %}

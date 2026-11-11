@@ -1,0 +1,48 @@
+id: simulation
+title: "Simulation"
+kicker: "Four benchmark maps, unknown at start"
+text:
+  - "Four benchmark maps, unknown at start, with the same dynamic limits and arrival criteria for every planner."
+  - "The four runs below play side by side; the dark area is space the LiDAR has not seen yet."
+  - "The same maps were used to compare with SUPER and SANDO; quantitative results are part of ongoing research and not shared here."
+
+video:
+  type: video_player
+  src: assets/video/sim.mp4
+  webm: assets/video/sim.webm
+  poster: assets/video/sim-poster.jpg
+  alt: "Top-down simulation of four maps running in parallel: the occupancy map grows as the LiDAR sees more, safe boxes cover known free space, the trajectory follows a route around the obstacles."
+  width: 1920
+  height: 1080
+  loop: true
+  legend: [unknown, occupied, safe, route, trajectory]
+  external: { label: "Watch in 4K on YouTube", href: "", external: true }   # filled once uploaded
+
+maps:
+  title: "The four maps"
+  entries:
+    - { src: assets/img/maps/map_1.png, webp: assets/img/maps/map_1.webp, alt: "Top-down view of map 1: a regular grid of cylinders.", label: "map 1 · regular cylinders" }
+    - { src: assets/img/maps/map_2.png, webp: assets/img/maps/map_2.webp, alt: "Top-down view of map 2: a denser grid of larger cylinders.", label: "map 2 · dense cylinders" }
+    - { src: assets/img/maps/map_3.png, webp: assets/img/maps/map_3.webp, alt: "Top-down view of map 3: U-shaped obstacles opening toward the start.", label: "map 3 · U-shaped traps" }
+    - { src: assets/img/maps/map_4.png, webp: assets/img/maps/map_4.webp, alt: "Top-down view of map 4: deeper U-shaped obstacles with narrow gaps.", label: "map 4 · deep U-traps, narrow gaps" }
+
+comparison:
+  title: "A different design point"
+  intro: "How the stack around the ACTOR solver differs from two recent corridor planners. Qualitative only."
+  columns: ["SUPER", "SANDO", "This stack (ACTOR solver)"]
+  rows:
+    - { label: "Route chosen",         cells: ["before optimization, by a path search", "before optimization, by a path search", "inside the optimization, by the solver"] }
+    - { label: "Corridor constraints", cells: ["soft penalties on the trajectory", "hard constraints", "hard constraints; every result is checked by an execution gate"] }
+    - { label: "Binary variables",     cells: ["none", "yes, mixed-integer", "none; a shortest-path search inside ADMM"] }
+    - { label: "Corridor coverage",    cells: ["along one path", "along one path", "the whole local window"] }
+    - { label: "In unknown space",     cells: ["exploratory plan plus a backup plan", "corridors inside known free space", "every plan ends at rest in known free space; no backup plan"] }
+
+f3:   # approval-gated figure
+  type: image
+  flag: show_f3_topview_comparison
+  src: assets/img/figures/topview-comparison.png
+  webp: assets/img/figures/topview-comparison.webp
+  alt: "Top-down trajectories of the three planners on the U-shaped maps."
+  caption: "Top-down trajectories on the U-shaped maps; routes only, no numbers."
+  width: 2400
+  height: 1200

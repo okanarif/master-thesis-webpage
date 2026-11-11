@@ -1,0 +1,14 @@
+.legend { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; color: var(--ink-2); font-size: var(--fs--1); }
+.legend--compact { gap: 0.4rem 1rem; }
+.legend__item { display: inline-flex; align-items: center; gap: 0.5rem; }
+.legend__chip { width: 0.95rem; height: 0.95rem; border-radius: 3px; background: var(--chip, var(--muted)); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35); }
+.legend__chip--unknown { --chip: var(--c-unknown); }
+.legend__chip--free { --chip: var(--c-free); }
+.legend__chip--occupied { --chip: var(--c-occupied); }
+.legend__chip--inflation { --chip: var(--c-inflation); }
+.legend__chip--optimistic { --chip: var(--c-optimistic); }
+.legend__chip--safe { --chip: var(--c-safe); }
+.legend__chip--route { --chip: var(--c-route); border-radius: var(--r-pill); height: 0.35rem; }
+.legend__chip--trajectory { --chip: var(--c-trajectory); border-radius: var(--r-pill); height: 0.35rem; }
+.legend__chip--goal { --chip: var(--c-goal); border-radius: 50%; }
+.legend__chip--vehicle { --chip: var(--c-vehicle); border-radius: 50%; }

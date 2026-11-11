@@ -1,0 +1,21 @@
+{#- Chapter list for a video. For YouTube the links carry the timestamp, so they work without JS;
+    JS upgrades them to seek the embedded player. -#}
+{% macro chapters(items, target_id, youtube_id=none) -%}
+<ol class="chapters" data-chapters-for="{{ target_id }}" aria-label="Chapters">
+  {%- for c in items %}
+  <li>
+    {% if youtube_id -%}
+    <a class="chapter" href="https://www.youtube.com/watch?v={{ youtube_id }}&amp;t={{ c.t }}s" data-seek="{{ c.t }}" target="_blank" rel="noopener noreferrer">
+    {%- elif youtube_id is none -%}
+    <button class="chapter" type="button" data-seek="{{ c.t }}">
+    {%- else -%}
+    <span class="chapter chapter--static">
+    {%- endif %}
+      <span class="chapter__time">{{ "%d:%02d" | format(c.t // 60, c.t % 60) }}</span>
+      <span class="chapter__label">{{ c.label }}</span>
+      {% if c.note %}<span class="chapter__note">{{ c.note }}</span>{% endif %}
+    {% if youtube_id %}</a>{% elif youtube_id is none %}</button>{% else %}</span>{% endif %}
+  </li>
+  {%- endfor %}
+</ol>
+{%- endmacro %}

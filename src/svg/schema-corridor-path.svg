@@ -1,0 +1,23 @@
+<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img">
+  <!-- window -->
+  <rect x="8" y="8" width="304" height="164" rx="6" fill="none" stroke="var(--line-2)" stroke-width="2"/>
+  <!-- obstacles -->
+  <rect x="96" y="30" width="26" height="46" fill="var(--c-occupied)"/>
+  <rect x="190" y="100" width="40" height="46" fill="var(--c-occupied)"/>
+  <rect x="150" y="26" width="46" height="18" fill="var(--c-occupied)"/>
+  <!-- corridor boxes along one path -->
+  <g fill="var(--c-safe)" fill-opacity="0.35" stroke="var(--c-safe)" stroke-width="1.5">
+    <rect x="24" y="84" width="70" height="60"/>
+    <rect x="80" y="86" width="72" height="42"/>
+    <rect x="130" y="52" width="60" height="50"/>
+    <rect x="176" y="48" width="60" height="50"/>
+    <rect x="222" y="40" width="74" height="58"/>
+  </g>
+  <!-- the single path -->
+  <path d="M34 120 L120 108 L165 78 L210 70 L282 64" fill="none" stroke="var(--c-route)" stroke-width="3" stroke-dasharray="6 5"/>
+  <circle cx="34" cy="120" r="6" fill="var(--c-vehicle)"/>
+  <circle cx="286" cy="64" r="6" fill="var(--c-goal)"/>
+  <!-- free space left uncovered -->
+  <rect x="24" y="20" width="60" height="50" fill="none" stroke="var(--muted)" stroke-dasharray="3 4"/>
+  <rect x="236" y="110" width="60" height="50" fill="none" stroke="var(--muted)" stroke-dasharray="3 4"/>
+</svg>

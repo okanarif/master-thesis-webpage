@@ -1,0 +1,20 @@
+{% from "components/legend.html.j2" import legend %}
+{% from "components/icon.html.j2" import icon %}
+{#- In-page video with native controls, optional legend row and external link. -#}
+{% macro video_player(m, player_id) -%}
+<figure class="player">
+  <video id="{{ player_id }}" class="player__video" controls muted playsinline preload="metadata"
+         {% if m.loop %}loop{% endif %} poster="{{ m.poster }}" width="{{ m.width }}" height="{{ m.height }}"
+         aria-label="{{ m.alt }}" data-player>
+    {% if m.webm %}<source src="{{ m.webm }}" type="video/webm">{% endif %}
+    <source src="{{ m.src }}" type="video/mp4">
+  </video>
+  <div class="player__meta">
+    {% if m.legend %}{{ legend(m.legend, compact=true) }}{% endif %}
+    {% if m.external and m.external.href %}
+    <a class="player__external" href="{{ m.external.href }}" target="_blank" rel="noopener noreferrer">{{ m.external.label }}{{ icon("external") }}</a>
+    {% endif %}
+  </div>
+  {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}

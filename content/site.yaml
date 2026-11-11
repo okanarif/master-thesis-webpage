@@ -1,0 +1,58 @@
+# Site-wide metadata. Every other content file is one section.
+title: "Online ADMM-Based Trajectory Planning for LiDAR-Equipped Quadrotors in Unknown Cluttered Environments"
+short_title: "LiDAR quadrotor in unknown clutter — Master's thesis"
+description: "A quadrotor builds its map from an onboard 3D LiDAR and flies through unknown clutter using the ACTOR solver of Pries et al. This work builds the online autonomy stack around that solver."
+lang: en
+base_url: "https://okanarif.github.io/master-thesis-webpage/"
+robots: "noindex, nofollow"
+
+author:
+  name: "Okan Arif Güvenkaya"
+  website: "https://okanarif.github.io/"
+  linkedin: ""        # optional: full profile URL; button is hidden while empty
+  email: ""           # optional: address; button is hidden while empty
+
+affiliation:
+  group: "Autonomous Aerial Systems"
+  group_short: "AAS"
+  pi: "Prof. Markus Ryll"
+  university: "Technical University of Munich"
+  university_short: "TUM"
+  supervisor: "Lukas Pries"
+  degree: "Master's Thesis"
+
+solver:
+  name: "ACTOR solver"
+  authors: "Pries, Arrizabalaga, Manchester, Ryll"
+  venue: "IROS 2026"
+  link: "https://arxiv.org/abs/2603.11335"
+solver_attribution: "ACTOR solver: Pries et al., IROS 2026 · Online stack & hardware: this thesis"
+
+ongoing_note: "This work is part of ongoing research at the Autonomous Aerial Systems group at TUM; detailed methodology and code are not shared at this stage."
+
+# Section order on the page and in the nav (ids must match content/<id>.yaml and a section template)
+sections: [hero, overview, flights, simulation, method, about]
+nav:
+  - { id: overview, label: "Overview" }
+  - { id: flights, label: "Flights" }
+  - { id: simulation, label: "Simulation" }
+  - { id: method, label: "How it works" }
+  - { id: about, label: "About" }
+
+og:
+  image: "assets/img/og/og-1200x630.jpg"
+  width: 1200
+  height: 630
+
+# Shared colour legend: key -> label. Colours come from styles/tokens.css (--c-<key>).
+legend_labels:
+  unknown: "unknown space"
+  free: "known free space"
+  occupied: "occupied"
+  inflation: "inflation around obstacles"
+  optimistic: "optimistic boxes"
+  safe: "safe boxes"
+  route: "frontier route"
+  trajectory: "planned trajectory"
+  goal: "goal"
+  vehicle: "vehicle"

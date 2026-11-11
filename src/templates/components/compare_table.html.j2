@@ -1,0 +1,21 @@
+{#- Qualitative comparison table. Stacks into cards on narrow screens via CSS (data-col labels). -#}
+{% macro compare_table(t) -%}
+<div class="compare">
+  <table class="compare__table">
+    <caption class="visually-hidden">{{ t.title }}</caption>
+    <thead>
+      <tr><th scope="col"><span class="visually-hidden">Aspect</span></th>
+        {% for col in t.columns %}<th scope="col"{% if loop.last %} class="compare__ours"{% endif %}>{{ col }}</th>{% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in t.rows %}
+      <tr>
+        <th scope="row">{{ row.label }}</th>
+        {% for cell in row.cells %}<td data-col="{{ t.columns[loop.index0] }}"{% if loop.last %} class="compare__ours"{% endif %}>{{ cell }}</td>{% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{%- endmacro %}

@@ -1,0 +1,56 @@
+id: flights
+title: "Flights"
+kicker: "Six indoor layouts, map empty at take-off"
+text:
+  - "Livox Mid-360 3D LiDAR, onboard computer and PX4 flight controller; state estimation from motion capture, everything else onboard."
+  - "The map starts empty on every flight: the gray space in the inset is what the LiDAR has not seen yet."
+text_numbers:   # rendered only with flags.show_flight_numbers
+  - "Flights were limited to a low speed because the arena is small."
+
+video:
+  type: video_player          # served in-page; switch to `type: youtube` + `id:` if 4K via YouTube is wanted later
+  src: assets/video/flights.mp4
+  poster: assets/video/flights-poster.jpg
+  alt: "Video of the six indoor flights, four camera views and a map inset."
+  width: 1920
+  height: 1080
+  chapters:
+    - { t: 0,   label: "map_1", note: "face-to-face obstacles" }
+    - { t: 27,  label: "map_2", note: "wide obstacles & walls" }
+    - { t: 54,  label: "map_3", note: "U-shaped trap" }
+    - { t: 81,  label: "map_4", note: "U-trap interior escape" }
+    - { t: 111, label: "map_5", note: "S-shaped corridor" }
+    - { t: 122, label: "map_6", note: "3D hole passage" }
+
+grid:           # rendered only with flags.show_flight_grid (priority 2 asset)
+  flag: show_flight_grid
+  entries:
+    - { id: map_1, label: "map_1 · face-to-face obstacles" }
+    - { id: map_2, label: "map_2 · wide obstacles & walls" }
+    - { id: map_3, label: "map_3 · U-shaped trap" }
+    - { id: map_4, label: "map_4 · U-trap interior escape" }
+    - { id: map_5, label: "map_5 · S-shaped corridor" }
+    - { id: map_6, label: "map_6 · 3D hole passage" }
+
+platform:
+  title: "The quadrotor"
+  photo:
+    type: callout_photo
+    src: assets/img/photos/drone-main.jpg
+    webp: assets/img/photos/drone-main.webp
+    alt: "Front view of the quadrotor: a LiDAR under a printed cage on top, the onboard computer in the middle, motion-capture markers on two arms."
+    width: 1600
+    height: 1067
+    callouts:
+      - { x: 54, y: 24, label: "Livox Mid-360 3D LiDAR, pitched down, inside a 3D-printed cage" }
+      - { x: 51, y: 52, label: "Onboard computer: mapping, decomposition, frontier selection and planning run here" }
+      - { x: 47, y: 63, label: "Flight controller running PX4, below the computer" }
+      - { x: 9,  y: 74, label: "Motion-capture markers: position only; the environment is sensed by the LiDAR" }
+  detail:
+    type: image
+    src: assets/img/photos/drone-detail.jpg
+    webp: assets/img/photos/drone-detail.webp
+    alt: "Top view of the LiDAR mount and protective cage."
+    caption: "LiDAR mount and cage, printed for this platform."
+    width: 1600
+    height: 1372

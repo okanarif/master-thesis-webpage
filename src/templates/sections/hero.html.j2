@@ -1,0 +1,29 @@
+{% from "components/button.html.j2" import button %}
+{% set h = content.hero %}
+<section id="top" class="hero" aria-labelledby="hero-title">
+  <div class="hero__media">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto"
+           poster="{{ h.media.poster }}" width="{{ h.media.width }}" height="{{ h.media.height }}"
+           aria-label="{{ h.media.alt }}" data-hero-video>
+      {% if h.media.webm %}<source src="{{ h.media.webm }}" type="video/webm">{% endif %}
+      <source src="{{ h.media.src }}" type="video/mp4">
+    </video>
+    <button class="hero__play" type="button" data-hero-play hidden>
+      <span>Play</span>
+    </button>
+    <p class="hero__attrib">{{ site.solver_attribution }}</p>
+  </div>
+  <div class="hero__body container">
+    <h1 id="hero-title" class="hero__title">{{ site.title }}</h1>
+    <p class="hero__byline">
+      <span>{{ site.author.name }}</span> ·
+      <span>{{ site.affiliation.degree }}</span> ·
+      <span>{{ site.affiliation.group }} ({{ site.affiliation.pi }}), {{ site.affiliation.university_short }}</span> ·
+      <span>Supervised by {{ site.affiliation.supervisor }}</span>
+    </p>
+    <p class="hero__lead">{{ h.lead }}</p>
+    <div class="btn-row">
+      {% for b in h.buttons %}{{ button(b.label, b.href, b.kind, b.icon, b.external) }}{% endfor %}
+    </div>
+  </div>
+</section>

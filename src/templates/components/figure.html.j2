@@ -1,0 +1,12 @@
+{#- Static image with optional WebP source, caption and lightbox zoom. -#}
+{% macro figure(m, group="figures", zoom=true) -%}
+<figure class="figure">
+  {% if zoom %}<a class="figure__zoom" href="{{ m.src }}" data-lightbox="{{ group }}" data-caption="{{ m.caption or m.alt }}" aria-label="Open larger: {{ m.caption or m.alt }}">{% endif %}
+  <picture>
+    {% if m.webp %}<source type="image/webp" srcset="{{ m.webp }}">{% endif %}
+    <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ m.width }}" height="{{ m.height }}" loading="lazy" decoding="async">
+  </picture>
+  {% if zoom %}</a>{% endif %}
+  {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}

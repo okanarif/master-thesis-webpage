@@ -1,0 +1,15 @@
+id: hero
+lead: "No prior map, no external perception: a quadrotor builds its map from an onboard 3D LiDAR and flies through clutter using the ACTOR solver of Pries et al. This work builds the online autonomy stack around that solver."
+buttons:
+  - { label: "Flights video", href: "#flights", kind: primary, icon: play }
+  - { label: "Simulation video", href: "#simulation", kind: primary, icon: play }
+  - { label: "Website", href: "https://okanarif.github.io/", kind: ghost, icon: globe, external: true }
+  - { label: "Contact", href: "#about", kind: ghost, icon: mail }
+media:
+  type: video_loop
+  src: assets/video/hero.mp4
+  webm: assets/video/hero.webm
+  poster: assets/video/hero-poster.jpg
+  alt: "Loop of two indoor flights through obstacles and one simulated run around a U-shaped obstacle."
+  width: 1600
+  height: 900

@@ -1,0 +1,20 @@
+{% from "components/figure.html.j2" import figure %}
+{% from "components/video_loop.html.j2" import video_loop %}
+{% from "components/video_player.html.j2" import video_player %}
+{% from "components/youtube_facade.html.j2" import youtube %}
+{% from "components/callout_photo.html.j2" import callout_photo %}
+{% from "components/svg_anim.html.j2" import svg_anim %}
+{#- Dispatcher. Honours m.flag (renders m.fallback, if any, when the flag is off). -#}
+{% macro media(m, uid="media", group="figures") -%}
+{% if m %}
+  {% if m.flag and not flags[m.flag] %}
+    {% if m.fallback %}{{ media(m.fallback, uid, group) }}{% endif %}
+  {% elif m.type == "image" %}{{ figure(m, group) }}
+  {% elif m.type == "video_loop" %}{{ video_loop(m) }}
+  {% elif m.type == "video_player" %}{{ video_player(m, uid) }}
+  {% elif m.type == "youtube" %}{{ youtube(m, uid) }}
+  {% elif m.type == "callout_photo" %}{{ callout_photo(m) }}
+  {% elif m.type == "svg_anim" %}{{ svg_anim(m) }}
+  {% endif %}
+{% endif %}
+{%- endmacro %}

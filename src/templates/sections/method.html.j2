@@ -1,0 +1,42 @@
+{% from "components/media.html.j2" import media %}
+{% from "components/legend.html.j2" import legend %}
+{% from "components/pipeline.html.j2" import pipeline %}
+{% from "components/icon.html.j2" import icon %}
+{% set s = content.method %}
+<section id="method" class="section section--method" aria-labelledby="method-title">
+  <div class="container">
+    <p class="section__kicker">{{ s.kicker }}</p>
+    <h2 id="method-title" class="section__title">{{ s.title }}</h2>
+    <p class="section__note">{{ s.intro }}</p>
+    {{ legend(s.legend) }}
+  </div>
+  <ol class="steps">
+    {% for st in s.steps %}
+    <li class="step" id="method-{{ st.id }}">
+      <div class="container step__inner">
+        <div class="step__text">
+          <p class="step__num" aria-hidden="true">{{ "%d" | format(loop.index) }}</p>
+          <h3 class="step__title">{{ st.title }}</h3>
+          {% for p in st.text %}<p>{{ p }}</p>{% endfor %}
+          {% if st.link %}<a class="step__link" href="{{ st.link.href }}"{% if st.link.external %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ st.link.label }}{{ icon("external") }}</a>{% endif %}
+        </div>
+        <div class="step__media">
+          {{ media(st.media, uid="method-" ~ st.id ~ "-media", group="method") }}
+          {% if st.schemas %}
+          <div class="schemas">
+            {% for sc in st.schemas %}
+            <figure class="schema"><div class="schema__svg" aria-hidden="true">{{ inline_svg(sc.svg) }}</div><figcaption>{{ sc.label }}</figcaption></figure>
+            {% endfor %}
+          </div>
+          {% endif %}
+          {% if st.pipelines %}
+          <div class="pipelines">
+            {% for p in st.pipelines %}{{ pipeline(p) }}{% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

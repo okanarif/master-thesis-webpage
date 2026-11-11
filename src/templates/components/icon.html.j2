@@ -1,0 +1,4 @@
+{#- Inline icon from src/svg/icons/<name>.svg. Decorative by default. -#}
+{% macro icon(name, label=none) -%}
+<span class="icon icon--{{ name }}"{% if label %} role="img" aria-label="{{ label }}"{% else %} aria-hidden="true"{% endif %}>{{ inline_svg("icons/" ~ name ~ ".svg") }}</span>
+{%- endmacro %}

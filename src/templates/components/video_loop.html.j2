@@ -1,0 +1,15 @@
+{#- Silent autoplaying loop (hero, G1, flight grid). JS pauses it offscreen and under reduced motion. -#}
+{% macro video_loop(m, cls="") -%}
+<figure class="loop {{ cls }}">
+  <video class="loop__video" autoplay muted loop playsinline preload="metadata"
+         poster="{{ m.poster }}" width="{{ m.width }}" height="{{ m.height }}"
+         aria-label="{{ m.alt }}" data-loop>
+    {% if m.webm %}<source src="{{ m.webm }}" type="video/webm">{% endif %}
+    <source src="{{ m.src }}" type="video/mp4">
+  </video>
+  <button class="loop__toggle" type="button" data-loop-toggle aria-pressed="true" aria-label="Pause animation">
+    <span class="loop__toggle-icon" aria-hidden="true"></span>
+  </button>
+  {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}
+</figure>
+{%- endmacro %}
