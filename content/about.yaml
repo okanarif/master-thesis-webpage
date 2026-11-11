@@ -9,7 +9,7 @@ buttons:
   - { label: "E-mail", key: email, kind: ghost, icon: mail }                              # uses site.author.email
 acknowledgements: "Autonomous Aerial Systems chair, Lukas Pries and Prof. Markus Ryll."
 photos:
-  title: "Thesis presentation"
+  title: "Gallery"
   entries:
-    - { src: assets/img/photos/defense-solo.jpg, webp: assets/img/photos/defense-solo.webp, alt: "Okan Arif Güvenkaya holding the quadrotor in front of the title slide of the thesis presentation.", caption: "After the presentation, November 2026" }
-    - { src: assets/img/photos/defense-group.jpg, webp: assets/img/photos/defense-group.webp, alt: "Okan Arif Güvenkaya with Prof. Markus Ryll and Lukas Pries, holding the quadrotor.", caption: "With Prof. Markus Ryll and Lukas Pries" }
+    - { src: assets/img/photos/defense-solo.jpg, webp: assets/img/photos/defense-solo.webp, alt: "Okan Arif Güvenkaya holding the quadrotor in front of the title slide of the thesis presentation." }
+    - { src: assets/img/photos/defense-group.jpg, webp: assets/img/photos/defense-group.webp, alt: "Okan Arif Güvenkaya with Prof. Markus Ryll and Lukas Pries, holding the quadrotor." }

@@ -28,7 +28,7 @@
           <source type="image/webp" srcset="{{ ph.webp }}">
           <img src="{{ ph.src }}" alt="{{ ph.alt }}" width="{{ dims(ph.src).width }}" height="{{ dims(ph.src).height }}" loading="lazy" decoding="async">
         </picture>
-        <figcaption class="figure__caption">{{ ph.caption }}</figcaption>
+        {% if ph.caption %}<figcaption class="figure__caption">{{ ph.caption }}</figcaption>{% endif %}
       </figure>
       {% endfor %}
     </div>
