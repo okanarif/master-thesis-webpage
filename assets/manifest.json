@@ -59,6 +59,18 @@
     "webp_kb": 11,
     "width": 1100
   },
+  "assets/img/photos/defense-group.jpg": {
+    "height": 600,
+    "jpg_kb": 71,
+    "webp_kb": 41,
+    "width": 800
+  },
+  "assets/img/photos/defense-solo.jpg": {
+    "height": 720,
+    "jpg_kb": 79,
+    "webp_kb": 40,
+    "width": 960
+  },
   "assets/img/photos/drone-detail.jpg": {
     "height": 1066,
     "jpg_kb": 178,

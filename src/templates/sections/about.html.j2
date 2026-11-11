@@ -19,5 +19,19 @@
         <p class="about__ack"><strong>Acknowledgements.</strong> {{ s.acknowledgements }}</p>
       </aside>
     </div>
+    {% if s.photos %}
+    <h3 class="section__subtitle about__photos-title">{{ s.photos.title }}</h3>
+    <div class="about__photos">
+      {% for ph in s.photos.entries %}
+      <figure class="about__photo about__photo--{{ ph.size }}">
+        <picture>
+          <source type="image/webp" srcset="{{ ph.webp }}">
+          <img src="{{ ph.src }}" alt="{{ ph.alt }}" width="{{ dims(ph.src).width }}" height="{{ dims(ph.src).height }}" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="figure__caption">{{ ph.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>

@@ -13,15 +13,18 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "Media" / "Figures"
+SRC = ROOT / "Media"
 OUT = ROOT / "assets" / "img" / "photos"
 MANIFEST = ROOT / "assets" / "manifest.json"
 
 PHOTOS = {
     # stem: (source, crop box as fractions, max width)
     # both crops share the same aspect ratio so the two photos sit side by side at equal size
-    "drone-main": ("Drone_Front_View.jpeg", (0.02, 0.33, 0.98, 0.81), 1600),
-    "drone-detail": ("Drone_Side_View.jpeg", (0.03, 0.44, 0.97, 0.91), 1600),
+    "drone-main": ("Figures/Drone_Front_View.jpeg", (0.02, 0.33, 0.98, 0.81), 1600),
+    "drone-detail": ("Figures/Drone_Side_View.jpeg", (0.03, 0.44, 0.97, 0.91), 1600),
+    # defense photos are shown small on purpose; keep the exports modest
+    "defense-solo": ("Photos/Presentation_Photo.jpeg", (0.0, 0.0, 1.0, 1.0), 960),
+    "defense-group": ("Photos/Photo_with_Supervisors.jpeg", (0.0, 0.0, 1.0, 1.0), 800),
 }
 
 
