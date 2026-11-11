@@ -2,9 +2,9 @@ id: overview
 title: "What this thesis is"
 cards:
   - icon: solver
-    kicker: "The solver"
+    kicker: "The solver: not part of this thesis"
     title: "ACTOR, by Pries et al."
-    text: "ADMM over a union of convex sets: the route is chosen inside the optimization, without a mixed-integer solve. Pries, Arrizabalaga, Manchester, Ryll — IROS 2026."
+    text: "The solver itself was developed by Pries, Arrizabalaga, Manchester and Ryll (IROS 2026), not in this thesis. ADMM over a union of convex sets: the route is chosen inside the optimization, without a mixed-integer solve."
     link: { label: "Paper on arXiv", href: "https://arxiv.org/abs/2603.11335", external: true }
   - icon: stack
     kicker: "This work"

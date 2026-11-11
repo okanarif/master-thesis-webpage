@@ -33,8 +33,6 @@ FIGURES = {
     "decomposition": ("Decomposition.png", "all"),
     "frontier": ("Frontier_Selection.png", "all"),
     "architecture": ("ACTOR_Modules.png", "none"),
-    "planner-sequential": ("SUPER_SANDO_Modules.png", "none"),
-    "planner-actor": ("ACTOR_Planner_Module.png", "none"),
 }
 TRIM_PAD = 0.02  # margin kept around the content after trimming, fraction of the larger side
 MAPS = {f"map_{i}": f"Map_{i}_2D.png" for i in range(1, 5)}

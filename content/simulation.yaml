@@ -44,6 +44,7 @@ comparison:
     - { label: "Corridor constraints", cells: ["soft penalties on the trajectory", "hard constraints", "hard constraints"] }
     - { label: "Binary variables",     cells: ["none", "yes, mixed-integer", "none"] }
     - { label: "Corridor coverage",    cells: ["along one path", "along one path", "the whole local window"] }
+    - { label: "Planner node does",    cells: ["path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "trajectory generation only; boxes and frontier arrive from the other nodes"] }
     - { label: "In unknown space",     cells: ["exploratory plan plus a backup plan", "corridors inside known free space", "every plan ends at rest in known free space; no backup plan"] }
 
 f3:   # approval-gated figure

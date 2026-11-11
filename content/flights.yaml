@@ -34,7 +34,7 @@ grid:           # rendered only with flags.show_flight_grid (priority 2 asset)
 
 platform:
   title: "The quadrotor"
-  # One numbered list for both photos; each photo places the same numbers.
+  # Numbered list keyed to the markers on the first photo; the second photo has no markers.
   parts:
     - "Livox Mid-360 3D LiDAR, pitched down, inside a 3D-printed cage"
     - "Onboard computer: mapping, decomposition, frontier selection and planning run here"
@@ -54,8 +54,3 @@ platform:
       webp: assets/img/photos/drone-detail.webp
       alt: "Front view of the quadrotor with all four propellers and the motion-capture markers visible; the LiDAR cage on top."
       caption: "Front view"
-      markers:
-        - { n: 1, x: 50, y: 25 }
-        - { n: 2, x: 50, y: 47 }
-        - { n: 3, x: 52, y: 57 }
-        - { n: 4, x: 7.5, y: 77 }

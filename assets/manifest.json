@@ -23,18 +23,6 @@
     "webp_kb": 154,
     "width": 2400
   },
-  "assets/img/figures/planner-actor.png": {
-    "height": 664,
-    "png_kb": 25,
-    "webp_kb": 13,
-    "width": 744
-  },
-  "assets/img/figures/planner-sequential.png": {
-    "height": 1864,
-    "png_kb": 71,
-    "webp_kb": 38,
-    "width": 744
-  },
   "assets/img/maps/map_1.png": {
     "height": 448,
     "png_kb": 61,
@@ -60,16 +48,16 @@
     "width": 1100
   },
   "assets/img/photos/defense-group.jpg": {
-    "height": 600,
-    "jpg_kb": 71,
-    "webp_kb": 41,
-    "width": 800
+    "height": 1200,
+    "jpg_kb": 229,
+    "webp_kb": 118,
+    "width": 1600
   },
   "assets/img/photos/defense-solo.jpg": {
-    "height": 720,
-    "jpg_kb": 79,
-    "webp_kb": 40,
-    "width": 960
+    "height": 1200,
+    "jpg_kb": 196,
+    "webp_kb": 95,
+    "width": 1600
   },
   "assets/img/photos/drone-detail.jpg": {
     "height": 1066,

@@ -82,7 +82,7 @@ steps:
     title: "Replanning & trajectory hand-off"
     text:
       - "Each new plan starts from a predicted state on the current plan, so velocity and acceleration stay continuous."
-      - "The planner module itself only generates trajectories: path search, frontier and corridor construction have already happened in the other nodes."
+      - "The planner node itself only generates trajectories: path search, frontier and corridor construction have already happened in the other nodes."
     media:
       type: video_loop
       src: assets/video/handoff.mp4
@@ -92,16 +92,3 @@ steps:
       caption: "Replanning with prefix stitching: the new plan starts at the look-ahead point and is stitched onto the kept prefix."
       width: 1280
       height: 720
-    compare:
-      title: "Planner module, side by side"
-      entries:
-        - src: assets/img/figures/planner-sequential.png
-          webp: assets/img/figures/planner-sequential.webp
-          alt: "Planner block of SUPER and SANDO: path plan, frontier selection at the end of the plan horizon, corridor generation along the path and trajectory generation, in sequence."
-          label: "SUPER / SANDO"
-          note: "path plan → frontier → corridor along the path → trajectory, every cycle"
-        - src: assets/img/figures/planner-actor.png
-          webp: assets/img/figures/planner-actor.webp
-          alt: "Planner block of this stack: trajectory generation only."
-          label: "This stack"
-          note: "trajectory generation only; boxes and frontier arrive from the other nodes"

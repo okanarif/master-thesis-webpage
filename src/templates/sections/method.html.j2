@@ -33,21 +33,6 @@
             {% endfor %}
           </div>
           {% endif %}
-          {% if st.compare %}
-          <div class="pcompare" role="group" aria-label="{{ st.compare.title }}">
-            {% for it in st.compare.entries %}
-            <figure class="pcompare__item">
-              <a class="figure__zoom pcompare__zoom" href="{{ it.src }}" data-lightbox="planner" data-caption="{{ it.label }}: {{ it.note }}" aria-label="Open larger: {{ it.alt }}">
-                <picture>
-                  <source type="image/webp" srcset="{{ it.webp }}">
-                  <img src="{{ it.src }}" alt="{{ it.alt }}" width="{{ dims(it.src).width }}" height="{{ dims(it.src).height }}" loading="lazy" decoding="async">
-                </picture>
-              </a>
-              <figcaption class="pcompare__caption"><strong>{{ it.label }}</strong><span>{{ it.note }}</span></figcaption>
-            </figure>
-            {% endfor %}
-          </div>
-          {% endif %}
         </div>
       </div>
     </li>

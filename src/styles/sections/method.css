@@ -12,18 +12,7 @@
 .step__link { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 600; }
 .step__media { display: grid; gap: var(--space-2); }
 
-.pcompare { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
-.pcompare__item { display: grid; gap: 0.6rem; padding: var(--space-2); border-radius: var(--r-2); background: var(--surface); border: 1px solid var(--line); }
-.pcompare__zoom { display: grid; grid-template-rows: minmax(0, 1fr); place-items: center; height: 26rem; padding: var(--space-2); border-radius: var(--r-1); background: #fff; overflow: hidden; }
-.pcompare__zoom img { width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
-.pcompare__caption { display: grid; gap: 0.15rem; color: var(--muted); font-size: var(--fs--1); }
-.pcompare__caption strong { color: var(--ink); }
-
 @media (max-width: 900px) {
   .step__inner { grid-template-columns: 1fr; gap: var(--space-3); }
   .step__text { position: static; }
-}
-@media (max-width: 560px) {
-  .pcompare { grid-template-columns: 1fr; }
-  .pcompare__zoom { height: 18rem; }
 }

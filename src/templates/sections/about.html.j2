@@ -23,7 +23,7 @@
     <h3 class="section__subtitle about__photos-title">{{ s.photos.title }}</h3>
     <div class="about__photos">
       {% for ph in s.photos.entries %}
-      <figure class="about__photo about__photo--{{ ph.size }}">
+      <figure class="about__photo">
         <picture>
           <source type="image/webp" srcset="{{ ph.webp }}">
           <img src="{{ ph.src }}" alt="{{ ph.alt }}" width="{{ dims(ph.src).width }}" height="{{ dims(ph.src).height }}" loading="lazy" decoding="async">

@@ -4,9 +4,8 @@
 .about__note { font-weight: 500; }
 .about__ack { color: var(--muted); font-size: var(--fs--1); }
 .about__photos-title { font-size: var(--fs-1); margin-top: var(--space-5); }
-.about__photos { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-3); }
+.about__photos { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: start; }
 .about__photo { display: grid; gap: var(--space-1); }
-.about__photo img { border-radius: var(--r-2); }
-.about__photo--medium { width: min(100%, 340px); }
-.about__photo--small { width: min(100%, 260px); }
+.about__photo img { width: 100%; border-radius: var(--r-2); }
 @media (max-width: 900px) { .about { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .about__photos { grid-template-columns: 1fr; } }
