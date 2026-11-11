@@ -1,6 +1,6 @@
 id: simulation
 title: "Simulation"
-kicker: "Four benchmark maps, unknown at start"
+kicker: "Four benchmark maps"
 text:
   - "Four benchmark maps, unknown at start, with the same arrival criteria for every planner."
   - "The four runs below play side by side; the dark area is space the LiDAR has not seen yet."

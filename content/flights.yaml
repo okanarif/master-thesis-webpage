@@ -1,6 +1,6 @@
 id: flights
 title: "Real Flights"
-kicker: "Six indoor layouts, map empty at take-off"
+kicker: "Six indoor layouts"
 text:
   - "Livox Mid-360 3D LiDAR, onboard computer and PX4 flight controller; state estimation from motion capture, everything else onboard."
   - "The map starts empty on every flight: the gray space in the inset is what the LiDAR has not seen yet."
