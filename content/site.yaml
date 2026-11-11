@@ -37,7 +37,7 @@ nav:
   - { id: overview, label: "Overview" }
   - { id: flights, label: "Real Flights" }
   - { id: simulation, label: "Simulation" }
-  - { id: method, label: "How it works" }
+  - { id: method, label: "How It Works" }
   - { id: about, label: "About" }
   - { id: references, label: "References" }
 

@@ -33,7 +33,7 @@ grid:           # rendered only with flags.show_flight_grid (priority 2 asset)
     - { id: map_6, label: "Map 6 · 3D Multi-Altitude & Window Passage" }
 
 platform:
-  title: "The quadrotor"
+  title: "The Quadrotor"
   # Numbered list keyed to the markers on the first photo; the second photo has no markers.
   parts:
     - "Livox Mid-360 3D LiDAR, pitched down, inside a 3D-printed cage"

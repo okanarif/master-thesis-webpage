@@ -25,7 +25,7 @@ video:
   external: { label: "Watch in 4K on YouTube", href: "", external: true }   # filled once uploaded
 
 maps:
-  title: "The four maps"
+  title: "The Four Maps"
   entries:
     - { src: assets/img/maps/map_1.png, webp: assets/img/maps/map_1.webp, alt: "Top-down view of map 1: a regular grid of cylinders.", label: "Map 1 · Regular Cylinder Grid" }
     - { src: assets/img/maps/map_2.png, webp: assets/img/maps/map_2.webp, alt: "Top-down view of map 2: a denser grid of larger cylinders.", label: "Map 2 · Dense Cylinder Grid" }
@@ -33,20 +33,20 @@ maps:
     - { src: assets/img/maps/map_4.png, webp: assets/img/maps/map_4.webp, alt: "Top-down view of map 4: deeper U-shaped obstacles with narrow gaps.", label: "Map 4 · Deep U-Shaped Traps & Narrow Gaps" }
 
 comparison:
-  title: "A different design point"
+  title: "A Different Design Point"
   intro: "How this stack differs from two recent corridor planners. Qualitative only."
   columns: ["SUPER", "SANDO", "This stack"]
   column_refs: { "SUPER": super, "SANDO": sando }   # ids in references.yaml; "This stack" carries no citation
   rows:
     - { label: "Solver",               cells: ["L-BFGS (MINCO)", "Gurobi (MIQP)", "ACTOR (ADMM)"], refs: [~, ~, actor] }
-    - { label: "Method",               cells: ["spatio-temporal optimization over one corridor", "mixed-integer quadratic program assigning segments to polytopes", "ADMM over a union of boxes; the assignment is a shortest path inside the iterations"] }
-    - { label: "Objective",            cells: ["minimum snap", "minimum jerk", "minimum snap"] }
-    - { label: "Route chosen",         cells: ["before optimization, by a path search", "before optimization, by a path search", "inside the optimization, by the solver"] }
-    - { label: "Corridor constraints", cells: ["soft penalties on the trajectory", "hard constraints", "hard constraints"] }
-    - { label: "Binary variables",     cells: ["none", "yes, mixed-integer", "none"] }
-    - { label: "Corridor coverage",    cells: ["along one path", "along one path", "the whole local window"] }
-    - { label: "Planner node does",    cells: ["path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "trajectory generation only; boxes and frontier arrive from the other nodes"] }
-    - { label: "In unknown space",     cells: ["exploratory plan plus a backup plan", "corridors inside known free space", "every plan ends at rest in known free space; no backup plan"] }
+    - { label: "Method",               cells: ["Spatio-temporal optimization over one corridor", "Mixed-integer quadratic program assigning segments to polytopes", "ADMM over a union of boxes; the assignment is a shortest path inside the iterations"] }
+    - { label: "Objective",            cells: ["Minimum snap", "Minimum jerk", "Minimum snap"] }
+    - { label: "Route Chosen",         cells: ["Before optimization, by a path search", "Before optimization, by a path search", "Inside the optimization, by the solver"] }
+    - { label: "Corridor Constraints", cells: ["Soft penalties on the trajectory", "Hard constraints", "Hard constraints"] }
+    - { label: "Binary Variables",     cells: ["None", "Yes, mixed-integer", "None"] }
+    - { label: "Corridor Coverage",    cells: ["Along one path", "Along one path", "The whole local window"] }
+    - { label: "Planner Node Does",    cells: ["Path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "Path plan, frontier, corridor along the path and trajectory, in sequence every cycle", "Trajectory generation only; boxes and frontier arrive from the other nodes"] }
+    - { label: "In Unknown Space",     cells: ["Exploratory plan plus a backup plan", "Corridors inside known free space", "Every plan ends at rest in known free space; no backup plan"] }
 
 f3:   # approval-gated figure
   type: image

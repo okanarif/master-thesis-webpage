@@ -1,11 +1,11 @@
 id: method
-title: "How it works"
+title: "How It Works"
 kicker: "One architecture, five stages"
 intro: "All figures share one legend. Unknown space is gray and is treated as an obstacle until the LiDAR sees it."
 legend: [unknown, free, occupied, inflation, optimistic, safe, route, trajectory, goal, vehicle]
 
 architecture:
-  title: "System architecture"
+  title: "System Architecture"
   text:
     - "Perception, mapping, decomposition, frontier selection, planning and control run as separate ROS 2 nodes and exchange data through shared topics."
     - "Nothing upstream sits inside the planner's loop: the planner tick reads the latest safe boxes and frontier and only optimizes."
@@ -18,7 +18,7 @@ architecture:
 
 steps:
   - id: mapping
-    title: "Perception & mapping"
+    title: "Perception & Mapping"
     text:
       - "A probabilistic occupancy grid with three states, free, occupied and unknown, is built from LiDAR scans as a sliding window around the vehicle."
       - "Unknown space stays an obstacle until the sensor sees it."
@@ -30,7 +30,7 @@ steps:
       caption: "(A) Environment, (B) LiDAR line of sight, (C) occupancy grid with free, occupied and unknown cells, (D) inflation around occupied and unknown cells."
 
   - id: decomposition
-    title: "Map-wide decomposition"
+    title: "Map-Wide Decomposition"
     text:
       - "Instead of inflating a corridor along one path, the whole local window is decomposed into overlapping boxes, twice."
       - "Optimistic (unknown counts as free) to find routes; safe (unknown counts as occupied) to build the corridor."
@@ -45,7 +45,7 @@ steps:
       - { svg: schema-whole-window.svg, label: "Whole local window" }
 
   - id: frontier
-    title: "Frontier selection"
+    title: "Frontier Selection"
     text:
       - "The optimistic route is projected onto the safe boxes; the deepest safe point becomes a terminal state with zero velocity."
       - "Every plan ends at rest in known free space, so no separate backup trajectory is needed."
@@ -57,7 +57,7 @@ steps:
       caption: "Route through the optimistic boxes (left); deepest point inside the safe boxes becomes the target (right)."
 
   - id: solver
-    title: "Trajectory optimization: the ACTOR solver"
+    title: "Trajectory Optimization: The ACTOR Solver"
     text:
       - "The solver assigns segments to boxes and optimizes the polynomial jointly by ADMM, so it can switch routes inside a single replan."
       - "Only the solver's role in the stack is shown here; the method is in the paper."
@@ -79,7 +79,7 @@ steps:
         caption: "Simulation on the map with deep U-shaped obstacles: safe boxes, frontier route and planned trajectory."
 
   - id: handoff
-    title: "Replanning & trajectory hand-off"
+    title: "Replanning & Trajectory Hand-Off"
     text:
       - "Each new plan starts from a predicted state on the current plan, so velocity and acceleration stay continuous."
       - "The planner node itself only generates trajectories: path search, frontier and corridor construction have already happened in the other nodes."
