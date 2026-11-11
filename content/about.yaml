@@ -5,6 +5,7 @@ bio:
   - "This thesis was carried out at the Autonomous Aerial Systems group of Prof. Markus Ryll, supervised by Lukas Pries."
 buttons:
   - { label: "Personal website", href: "https://okanarif.github.io/", kind: primary, icon: globe, external: true }
+  - { label: "Lab website", key: lab, kind: primary, icon: globe, external: true }          # uses site.affiliation.lab_url
   - { label: "LinkedIn", key: linkedin, kind: ghost, icon: linkedin, external: true }   # uses site.author.linkedin
   - { label: "E-mail", key: email, kind: ghost, icon: mail }                              # uses site.author.email
 acknowledgements: "Autonomous Aerial Systems chair, Lukas Pries and Prof. Markus Ryll."

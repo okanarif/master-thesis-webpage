@@ -8,7 +8,8 @@
         {% for p in s.bio %}<p>{{ p }}</p>{% endfor %}
         <div class="btn-row">
           {% for b in s.buttons %}
-            {% if b.key == "linkedin" %}{% if site.author.linkedin %}{{ button(b.label, site.author.linkedin, b.kind, b.icon, true) }}{% endif %}
+            {% if b.key == "lab" %}{{ button(b.label, site.affiliation.lab_url, b.kind, b.icon, true) }}
+            {% elif b.key == "linkedin" %}{% if site.author.linkedin %}{{ button(b.label, site.author.linkedin, b.kind, b.icon, true) }}{% endif %}
             {% elif b.key == "email" %}{% if site.author.email %}{{ button(b.label, "mailto:" ~ site.author.email, b.kind, b.icon, false) }}{% endif %}
             {% else %}{{ button(b.label, b.href, b.kind, b.icon, b.external) }}{% endif %}
           {% endfor %}
