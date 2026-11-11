@@ -5,7 +5,7 @@
     <caption class="visually-hidden">{{ t.title }}</caption>
     <thead>
       <tr><th scope="col"><span class="visually-hidden">Aspect</span></th>
-        {% for col in t.columns %}<th scope="col"{% if loop.last %} class="compare__ours"{% endif %}>{{ col }}</th>{% endfor %}
+        {% for col in t.columns %}<th scope="col"{% if loop.last %} class="compare__ours"{% endif %}>{{ col }}{% if t.column_refs and t.column_refs[col] %}<a class="cite" href="#ref-{{ t.column_refs[col] }}" aria-label="Reference {{ ref_index[t.column_refs[col]] }}">[{{ ref_index[t.column_refs[col]] }}]</a>{% endif %}</th>{% endfor %}
       </tr>
     </thead>
     <tbody>

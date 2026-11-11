@@ -1,0 +1,75 @@
+id: references
+title: "References"
+note: "Works cited on this page and in the thesis. The first three are the planners discussed above."
+entries:
+  - id: actor
+    featured: true
+    authors: "L. Pries, J. Arrizabalaga, Z. Manchester, M. Ryll"
+    title: "ADMM-based Continuous Trajectory Optimization in Graphs of Convex Sets"
+    venue: "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026"
+    tag: "ACTOR"
+    href: "https://arxiv.org/abs/2603.11335"
+  - id: super
+    featured: true
+    authors: "Y. Ren, F. Zhu, G. Lu, Y. Cai, L. Yin, F. Kong, J. Lin, N. Chen, F. Zhang"
+    title: "Safety-assured high-speed navigation for MAVs"
+    venue: "Science Robotics 10(98), 2025"
+    tag: "SUPER"
+    href: "https://doi.org/10.1126/scirobotics.ado6187"
+  - id: sando
+    featured: true
+    authors: "K. Kondo, J. Tordesillas, J. Rached, L. Sun, Y. Jia, J. P. How"
+    title: "SANDO: Safe Autonomous Trajectory Planning for Dynamic Unknown Environments"
+    venue: "IEEE Transactions on Robotics 42, 2026"
+    tag: "SANDO"
+    href: "https://doi.org/10.1109/TRO.2026.3738474"
+  - id: foehn22
+    authors: "P. Foehn, E. Kaufmann, A. Romero, R. Penicka, S. Sun, L. Bauersfeld, T. Laengle, G. Cioffi, Y. Song, A. Loquercio, D. Scaramuzza"
+    title: "Agilicious: Open-source and open-hardware agile quadrotor for vision-based flight"
+    venue: "Science Robotics 7(67), 2022"
+    href: "https://doi.org/10.1126/scirobotics.abl6259"
+  - id: kondo25
+    authors: "K. Kondo, M. Peterson, N. Rober, J. Rached Viso, L. Jia, J. Chen, H. Merton, J. P. How"
+    title: "DYNUS: Uncertainty-aware Trajectory Planner in Dynamic Unknown Environments"
+    venue: "arXiv:2504.16734, 2025"
+    href: "https://arxiv.org/abs/2504.16734"
+  - id: lu25
+    authors: "M. Lu, X. Fan, H. Chen, P. Lu"
+    title: "FAPP: Fast and Adaptive Perception and Planning for UAVs in Dynamic Cluttered Environments"
+    venue: "IEEE Transactions on Robotics 41, 2025"
+    href: "https://doi.org/10.1109/TRO.2024.3522187"
+  - id: richter16
+    authors: "C. Richter, A. Bry, N. Roy"
+    title: "Polynomial Trajectory Planning for Aggressive Quadrotor Flight in Dense Indoor Environments"
+    venue: "Robotics Research, Springer Tracts in Advanced Robotics 114, 2016"
+    href: "https://doi.org/10.1007/978-3-319-28872-7_37"
+  - id: tordesillas22a
+    authors: "J. Tordesillas, J. P. How"
+    title: "MADER: Trajectory Planner in Multiagent and Dynamic Environments"
+    venue: "IEEE Transactions on Robotics 38(1), 2022"
+    href: "https://doi.org/10.1109/TRO.2021.3080235"
+  - id: tordesillas22b
+    authors: "J. Tordesillas, J. P. How"
+    title: "PANTHER: Perception-Aware Trajectory Planner in Dynamic Environments"
+    venue: "IEEE Access 10, 2022"
+    href: "https://doi.org/10.1109/ACCESS.2022.3154037"
+  - id: tordesillas22c
+    authors: "J. Tordesillas, B. T. Lopez, M. Everett, J. P. How"
+    title: "FASTER: Fast and Safe Trajectory Planner for Navigation in Unknown Environments"
+    venue: "IEEE Transactions on Robotics 38(2), 2022"
+    href: "https://doi.org/10.1109/TRO.2021.3100142"
+  - id: wang22
+    authors: "Z. Wang, X. Zhou, C. Xu, F. Gao"
+    title: "Geometrically Constrained Trajectory Optimization for Multicopters"
+    venue: "IEEE Transactions on Robotics 38(5), 2022"
+    href: "https://doi.org/10.1109/TRO.2022.3160022"
+  - id: zhou21a
+    authors: "B. Zhou, J. Pan, F. Gao, S. Shen"
+    title: "RAPTOR: Robust and Perception-Aware Trajectory Replanning for Quadrotor Fast Flight"
+    venue: "IEEE Transactions on Robotics 37(6), 2021"
+    href: "https://doi.org/10.1109/TRO.2021.3071527"
+  - id: zhou21b
+    authors: "X. Zhou, Z. Wang, H. Ye, C. Xu, F. Gao"
+    title: "EGO-Planner: An ESDF-Free Gradient-Based Local Planner for Quadrotors"
+    venue: "IEEE Robotics and Automation Letters 6(2), 2021"
+    href: "https://doi.org/10.1109/LRA.2020.3047728"

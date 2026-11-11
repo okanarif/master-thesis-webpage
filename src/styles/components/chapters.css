@@ -1,6 +1,7 @@
 .chapters { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0.5rem; margin-top: var(--space-2); }
+.chapters > li { display: grid; }   /* stretches each button to the row height, so short labels get the same box */
 .chapter {
-  display: grid; width: 100%; text-align: left; padding: 0.6rem 0.75rem; border-radius: var(--r-1);
+  display: grid; align-content: start; width: 100%; height: 100%; text-align: left; padding: 0.6rem 0.75rem; border-radius: var(--r-1);
   background: var(--surface); border: 1px solid var(--line); color: var(--ink);
   transition: border-color var(--dur) var(--ease), background var(--dur) var(--ease);
 }

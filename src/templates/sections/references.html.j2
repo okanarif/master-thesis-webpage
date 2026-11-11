@@ -1,0 +1,21 @@
+{% from "components/icon.html.j2" import icon %}
+{% set s = content.references %}
+<section id="references" class="section section--references" aria-labelledby="references-title">
+  <div class="container">
+    <h2 id="references-title" class="section__title">{{ s.title }}</h2>
+    <p class="section__note">{{ s.note }}</p>
+    <ol class="refs">
+      {% for r in s.entries %}
+      <li class="ref{% if r.featured %} ref--featured{% endif %}" id="ref-{{ r.id }}">
+        <span class="ref__num" aria-hidden="true">[{{ loop.index }}]</span>
+        <div class="ref__body">
+          {% if r.tag %}<span class="ref__tag">{{ r.tag }}</span>{% endif %}
+          <a class="ref__title" href="{{ r.href }}" target="_blank" rel="noopener noreferrer">{{ r.title }}{{ icon("external") }}</a>
+          <span class="ref__authors">{{ r.authors }}</span>
+          <span class="ref__venue">{{ r.venue }}</span>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

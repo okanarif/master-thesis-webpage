@@ -32,13 +32,14 @@ solver:
 ongoing_note: "This work is part of ongoing research at the Autonomous Aerial Systems group at TUM; detailed methodology and code are not shared at this stage."
 
 # Section order on the page and in the nav (ids must match content/<id>.yaml and a section template)
-sections: [hero, overview, flights, simulation, method, about]
+sections: [hero, overview, flights, simulation, method, about, references]
 nav:
   - { id: overview, label: "Overview" }
   - { id: flights, label: "Real Flights" }
   - { id: simulation, label: "Simulation" }
   - { id: method, label: "How it works" }
   - { id: about, label: "About" }
+  - { id: references, label: "References" }
 
 og:
   image: "assets/img/og/og-1200x630.jpg"

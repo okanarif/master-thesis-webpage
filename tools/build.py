@@ -119,7 +119,9 @@ def make_env(site: dict, flags: dict, content: dict, manifest: dict) -> Environm
         except Exception as exc:  # noqa: BLE001
             raise BuildError(f"dims: cannot read {path}: {exc}") from exc
 
-    env.globals.update(site=site, flags=flags, content=content, inline_svg=inline_svg, dims=dims)
+    refs = content.get("references", {}).get("entries", [])
+    ref_index = {r["id"]: i + 1 for i, r in enumerate(refs)}
+    env.globals.update(site=site, flags=flags, content=content, inline_svg=inline_svg, dims=dims, ref_index=ref_index)
     return env
 
 

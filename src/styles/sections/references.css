@@ -1,0 +1,13 @@
+.refs { list-style: none; display: grid; gap: var(--space-2); max-width: var(--w-media); }
+.ref { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: var(--space-1); padding: var(--space-2) 0; border-top: 1px solid var(--line); color: var(--ink-2); font-size: var(--fs--1); }
+.ref:last-child { border-bottom: 1px solid var(--line); }
+.ref__num { font-family: var(--font-mono); color: var(--muted); }
+.ref__body { display: grid; gap: 0.2rem; }
+.ref__tag { display: inline-block; width: fit-content; padding: 0.1rem 0.5rem; border-radius: var(--r-pill); background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); font-weight: 650; letter-spacing: 0.04em; font-size: 0.72rem; }
+.ref__title { display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 650; color: var(--ink); font-size: var(--fs-0); }
+.ref__authors { color: var(--ink-2); }
+.ref__venue { color: var(--muted); }
+.ref--featured { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-2); padding: var(--space-2) var(--space-3); }
+.ref--featured + .ref--featured { border-top: 1px solid var(--line); }
+.ref--featured .ref__num { color: var(--accent); }
+.cite { font-size: 0.75em; vertical-align: super; margin-left: 0.15em; font-weight: 600; }

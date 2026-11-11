@@ -34,7 +34,7 @@ RESULT_NUMBERS = re.compile(r"\b(?:22\.\d\d|25\.37|17\.02|4\.58|7\.10|5\.6[12]|1
 
 ALLOWED_HOSTS = {
     "arxiv.org", "www.youtube-nocookie.com", "www.youtube.com", "youtu.be",
-    "linkedin.com", "www.linkedin.com", "okanarif.github.io", "tum.de", "www.tum.de", "www.asg.ed.tum.de",
+    "linkedin.com", "www.linkedin.com", "okanarif.github.io", "tum.de", "www.tum.de", "www.asg.ed.tum.de", "doi.org",
 }
 BUDGETS_MB = {"assets/video/hero.mp4": 15, "assets/video/sim.mp4": 12, "assets/video/flights.mp4": 50}
 IMAGE_MAX_KB = 600
