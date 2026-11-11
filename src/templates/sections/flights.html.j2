@@ -28,8 +28,25 @@
   <div class="container">
     <h3 class="section__subtitle">{{ s.platform.title }}</h3>
     <div class="platform">
-      <div class="platform__main">{{ media(s.platform.photo) }}</div>
-      <div class="platform__detail">{{ media(s.platform.detail, group="platform") }}</div>
+      {% for ph in s.platform.photos %}
+      <figure class="figure platform__photo">
+        <a class="figure__zoom callout__figure" href="{{ ph.src }}" data-lightbox="platform" data-caption="{{ ph.caption }}" aria-label="Open larger: {{ ph.alt }}">
+          <picture>
+            <source type="image/webp" srcset="{{ ph.webp }}">
+            <img src="{{ ph.src }}" alt="{{ ph.alt }}" width="{{ dims(ph.src).width }}" height="{{ dims(ph.src).height }}" loading="lazy" decoding="async">
+          </picture>
+          {%- for mk in ph.markers %}
+          <span class="callout__marker" style="--x:{{ mk.x }}%;--y:{{ mk.y }}%" aria-hidden="true">{{ mk.n }}</span>
+          {%- endfor %}
+        </a>
+        <figcaption class="figure__caption">{{ ph.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+      <ol class="callout__list platform__list">
+        {%- for it in s.platform.parts %}
+        <li><span class="callout__num" aria-hidden="true">{{ loop.index }}</span>{{ it }}</li>
+        {%- endfor %}
+      </ol>
     </div>
   </div>
 </section>

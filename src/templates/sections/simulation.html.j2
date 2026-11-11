@@ -6,6 +6,12 @@
     <p class="section__kicker">{{ s.kicker }}</p>
     <h2 id="simulation-title" class="section__title">{{ s.title }}</h2>
     <div class="section__text">{% for p in s.text %}<p>{{ p }}</p>{% endfor %}</div>
+    <div class="limits">
+      <p class="limits__intro">{{ s.limits.intro }}</p>
+      <dl class="limits__list">
+        {% for r in s.limits.rows %}<div class="limits__item"><dt>{{ r.label }}</dt><dd data-allow="units">{{ r.value }}</dd></div>{% endfor %}
+      </dl>
+    </div>
   </div>
   <div class="container container--media">
     {{ media(s.video, uid="sim-video") }}
@@ -15,10 +21,12 @@
     <ul class="maps">
       {% for m in s.maps.entries %}
       <li class="maps__item">
-        <picture>
-          <source type="image/webp" srcset="{{ m.webp }}">
-          <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ dims(m.src).width }}" height="{{ dims(m.src).height }}" loading="lazy" decoding="async">
-        </picture>
+        <a class="figure__zoom" href="{{ m.src }}" data-lightbox="maps" data-caption="{{ m.label }}" aria-label="Open larger: {{ m.label }}">
+          <picture>
+            <source type="image/webp" srcset="{{ m.webp }}">
+            <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ dims(m.src).width }}" height="{{ dims(m.src).height }}" loading="lazy" decoding="async">
+          </picture>
+        </a>
         <span class="maps__label">{{ m.label }}</span>
       </li>
       {% endfor %}

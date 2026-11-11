@@ -29,7 +29,7 @@ SRC = ROOT / "src"
 ASSETS = ROOT / "assets"
 DIST = ROOT / "dist"
 
-MEDIA_TYPES_NEEDING_ALT = {"image", "callout_photo", "video_loop", "video_player", "youtube", "svg_anim"}
+MEDIA_TYPES_NEEDING_ALT = {"image", "video_loop", "video_player", "youtube"}
 
 
 class BuildError(Exception):
@@ -87,8 +87,6 @@ def validate(content: dict, flags: dict) -> list[str]:
             if value and m["type"] != "youtube" or (m["type"] == "youtube" and key == "poster" and value):
                 if value and not (ROOT / value).exists():
                     errors.append(f"{path}.{key}: missing file {value}")
-        if m["type"] == "svg_anim" and not (SRC / "svg" / m["svg"]).exists():
-            errors.append(f"{path}.svg: missing src/svg/{m['svg']}")
     return errors
 
 

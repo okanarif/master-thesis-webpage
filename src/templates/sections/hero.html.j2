@@ -11,9 +11,13 @@
     <button class="hero__play" type="button" data-hero-play hidden>
       <span>Play</span>
     </button>
-    <p class="hero__attrib">{{ site.solver_attribution }}</p>
   </div>
   <div class="hero__body container">
+    <a class="hero__logo" href="{{ site.affiliation.lab_url }}" target="_blank" rel="noopener noreferrer"
+       aria-label="{{ site.affiliation.group }} group, {{ site.affiliation.university }} (lab website)">
+      <span class="hero__logo-mark">{{ inline_svg(site.affiliation.logo_svg) }}</span>
+      <span class="hero__logo-text">{{ site.affiliation.group }} · {{ site.affiliation.university }}</span>
+    </a>
     <h1 id="hero-title" class="hero__title">{{ site.title }}</h1>
     <p class="hero__byline">
       <span>{{ site.author.name }}</span> ·

@@ -7,7 +7,6 @@
 a.chapter:hover, button.chapter:hover { text-decoration: none; border-color: var(--accent); background: var(--surface-2); }
 .chapter[aria-current="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
 .chapter--static { cursor: default; }
-.chapter__time { font-family: var(--font-mono); font-size: var(--fs--1); color: var(--accent); }
 .chapter__label { font-weight: 650; }
 .chapter__note { color: var(--muted); font-size: var(--fs--1); line-height: 1.3; }
 @media (max-width: 900px) { .chapters { grid-template-columns: repeat(3, minmax(0, 1fr)); } }

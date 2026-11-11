@@ -16,7 +16,6 @@
 
 .footer { border-top: 1px solid var(--line); padding-block: var(--space-5); color: var(--muted); font-size: var(--fs--1); }
 .footer__inner { display: grid; gap: var(--space-1); }
-.footer__attrib { color: var(--ink-2); font-weight: 600; }
 .footer__copy { margin-top: var(--space-2); }
 
 @media (max-width: 720px) {

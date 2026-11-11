@@ -1,5 +1,5 @@
 id: flights
-title: "Flights"
+title: "Real Flights"
 kicker: "Six indoor layouts, map empty at take-off"
 text:
   - "Livox Mid-360 3D LiDAR, onboard computer and PX4 flight controller; state estimation from motion capture, everything else onboard."
@@ -14,43 +14,48 @@ video:
   alt: "Video of the six indoor flights, four camera views and a map inset."
   width: 1920
   height: 1080
-  chapters:
-    - { t: 0,   label: "map_1", note: "face-to-face obstacles" }
-    - { t: 27,  label: "map_2", note: "wide obstacles & walls" }
-    - { t: 54,  label: "map_3", note: "U-shaped trap" }
-    - { t: 81,  label: "map_4", note: "U-trap interior escape" }
-    - { t: 111, label: "map_5", note: "S-shaped corridor" }
-    - { t: 122, label: "map_6", note: "3D hole passage" }
+  chapters:                   # labels follow the thesis layout names
+    - { t: 0,   label: "Map 1", note: "Face-to-Face Obstacles" }
+    - { t: 27,  label: "Map 2", note: "Wide-Radius & Wall Barriers" }
+    - { t: 54,  label: "Map 3", note: "Non-Convex U-Shaped Trap" }
+    - { t: 81,  label: "Map 4", note: "U-Shaped Trap Interior Escape" }
+    - { t: 111, label: "Map 5", note: "S-Shaped Curved Corridor" }
+    - { t: 122, label: "Map 6", note: "3D Multi-Altitude & Window Passage" }
 
 grid:           # rendered only with flags.show_flight_grid (priority 2 asset)
   flag: show_flight_grid
   entries:
-    - { id: map_1, label: "map_1 · face-to-face obstacles" }
-    - { id: map_2, label: "map_2 · wide obstacles & walls" }
-    - { id: map_3, label: "map_3 · U-shaped trap" }
-    - { id: map_4, label: "map_4 · U-trap interior escape" }
-    - { id: map_5, label: "map_5 · S-shaped corridor" }
-    - { id: map_6, label: "map_6 · 3D hole passage" }
+    - { id: map_1, label: "Map 1 · Face-to-Face Obstacles" }
+    - { id: map_2, label: "Map 2 · Wide-Radius & Wall Barriers" }
+    - { id: map_3, label: "Map 3 · Non-Convex U-Shaped Trap" }
+    - { id: map_4, label: "Map 4 · U-Shaped Trap Interior Escape" }
+    - { id: map_5, label: "Map 5 · S-Shaped Curved Corridor" }
+    - { id: map_6, label: "Map 6 · 3D Multi-Altitude & Window Passage" }
 
 platform:
   title: "The quadrotor"
-  photo:
-    type: callout_photo
-    src: assets/img/photos/drone-main.jpg
-    webp: assets/img/photos/drone-main.webp
-    alt: "Front view of the quadrotor: a LiDAR under a printed cage on top, the onboard computer in the middle, motion-capture markers on two arms."
-    width: 1600
-    height: 1067
-    callouts:
-      - { x: 54, y: 24, label: "Livox Mid-360 3D LiDAR, pitched down, inside a 3D-printed cage" }
-      - { x: 51, y: 52, label: "Onboard computer: mapping, decomposition, frontier selection and planning run here" }
-      - { x: 47, y: 63, label: "Flight controller running PX4, below the computer" }
-      - { x: 9,  y: 74, label: "Motion-capture markers: position only; the environment is sensed by the LiDAR" }
-  detail:
-    type: image
-    src: assets/img/photos/drone-detail.jpg
-    webp: assets/img/photos/drone-detail.webp
-    alt: "Top view of the LiDAR mount and protective cage."
-    caption: "LiDAR mount and cage, printed for this platform."
-    width: 1600
-    height: 1372
+  # One numbered list for both photos; each photo places the same numbers.
+  parts:
+    - "Livox Mid-360 3D LiDAR, pitched down, inside a 3D-printed cage"
+    - "Onboard computer: mapping, decomposition, frontier selection and planning run here"
+    - "Flight controller running PX4, below the computer"
+    - "Motion-capture markers: position only; the environment is sensed by the LiDAR"
+  photos:
+    - src: assets/img/photos/drone-main.jpg
+      webp: assets/img/photos/drone-main.webp
+      alt: "Side view of the quadrotor: a LiDAR under a printed cage on top, the onboard computer in the middle, motion-capture markers on two arms."
+      caption: "Side view"
+      markers:
+        - { n: 1, x: 54, y: 24 }
+        - { n: 2, x: 51, y: 52 }
+        - { n: 3, x: 47, y: 63 }
+        - { n: 4, x: 9,  y: 74 }
+    - src: assets/img/photos/drone-detail.jpg
+      webp: assets/img/photos/drone-detail.webp
+      alt: "Front view of the quadrotor with all four propellers and the motion-capture markers visible; the LiDAR cage on top."
+      caption: "Front view"
+      markers:
+        - { n: 1, x: 50, y: 25 }
+        - { n: 2, x: 50, y: 47 }
+        - { n: 3, x: 52, y: 57 }
+        - { n: 4, x: 7.5, y: 77 }

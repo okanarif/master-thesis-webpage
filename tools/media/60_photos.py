@@ -19,8 +19,9 @@ MANIFEST = ROOT / "assets" / "manifest.json"
 
 PHOTOS = {
     # stem: (source, crop box as fractions, max width)
+    # both crops share the same aspect ratio so the two photos sit side by side at equal size
     "drone-main": ("Drone_Front_View.jpeg", (0.02, 0.33, 0.98, 0.81), 1600),
-    "drone-detail": ("Drone_Side_View.jpeg", (0.15, 0.30, 0.85, 0.75), 1600),
+    "drone-detail": ("Drone_Side_View.jpeg", (0.03, 0.44, 0.97, 0.91), 1600),
 }
 
 

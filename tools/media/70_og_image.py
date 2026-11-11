@@ -40,7 +40,7 @@ def main() -> None:
     yy += 16
     d.text((60, yy), f'{site["author"]["name"]}  ·  Master\'s thesis  ·  {site["affiliation"]["group"]}, TUM',
            font=fs, fill=(170, 182, 194))
-    d.text((60, yy + 40), site["solver_attribution"], font=fs, fill=(170, 182, 194))
+    d.text((60, yy + 40), f'Supervised by {site["affiliation"]["supervisor"]}  ·  {site["affiliation"]["pi"]}', font=fs, fill=(170, 182, 194))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     im.save(OUT, quality=85, optimize=True)
     print(f"[og] {OUT.relative_to(ROOT)} {OUT.stat().st_size // 1024} KB")

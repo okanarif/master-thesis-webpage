@@ -1,5 +1,5 @@
 {#- Chapter list for a video. For YouTube the links carry the timestamp, so they work without JS;
-    JS upgrades them to seek the embedded player. -#}
+    JS upgrades them to seek the embedded player. Times are not shown. -#}
 {% macro chapters(items, target_id, youtube_id=none) -%}
 <ol class="chapters" data-chapters-for="{{ target_id }}" aria-label="Chapters">
   {%- for c in items %}
@@ -11,7 +11,6 @@
     {%- else -%}
     <span class="chapter chapter--static">
     {%- endif %}
-      <span class="chapter__time">{{ "%d:%02d" | format(c.t // 60, c.t % 60) }}</span>
       <span class="chapter__label">{{ c.label }}</span>
       {% if c.note %}<span class="chapter__note">{{ c.note }}</span>{% endif %}
     {% if youtube_id %}</a>{% elif youtube_id is none %}</button>{% else %}</span>{% endif %}

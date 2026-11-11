@@ -1,2 +1,6 @@
-.platform { display: grid; grid-template-columns: 3fr 2fr; gap: var(--space-3); align-items: start; }
-@media (max-width: 900px) { .platform { grid-template-columns: 1fr; } }
+.platform { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); align-items: start; }
+.platform__list { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; column-gap: var(--space-3); }
+@media (max-width: 720px) {
+  .platform { grid-template-columns: 1fr; }
+  .platform__list { grid-template-columns: 1fr; }
+}

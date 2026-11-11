@@ -8,7 +8,3 @@ buttons:
   - { label: "LinkedIn", key: linkedin, kind: ghost, icon: linkedin, external: true }   # uses site.author.linkedin
   - { label: "E-mail", key: email, kind: ghost, icon: mail }                              # uses site.author.email
 acknowledgements: "Autonomous Aerial Systems chair, Lukas Pries and Prof. Markus Ryll."
-logo:                     # rendered only with flags.show_tum_logo
-  flag: show_tum_logo
-  src: assets/img/logos/tum-aas.svg
-  alt: "TUM Autonomous Aerial Systems"

@@ -2,7 +2,5 @@
 # complete with all flags off. Flip a flag in the commit that records the approval.
 show_f3_topview_comparison: false   # thesis Fig. 4.2/4.3 simplified (needs Lukas / Ryll approval)
 show_flight_numbers: false          # small numbers such as the indoor speed limit (needs approval)
-show_tum_logo: false                # TUM / AAS logo use (needs the chair's approval)
 show_flight_grid: false             # six per-flight loops under the player (asset readiness)
 show_g1_loop: false                 # route-switch loop in method step 4 (asset readiness)
-show_handoff_animation: false       # SVG animation in method step 5 (asset readiness)

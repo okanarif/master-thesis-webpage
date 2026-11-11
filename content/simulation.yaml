@@ -2,9 +2,15 @@ id: simulation
 title: "Simulation"
 kicker: "Four benchmark maps, unknown at start"
 text:
-  - "Four benchmark maps, unknown at start, with the same dynamic limits and arrival criteria for every planner."
+  - "Four benchmark maps, unknown at start, with the same arrival criteria for every planner."
   - "The four runs below play side by side; the dark area is space the LiDAR has not seen yet."
   - "The same maps were used to compare with SUPER and SANDO; quantitative results are part of ongoing research and not shared here."
+limits:
+  intro: "All simulation benchmarks ran under the same per-axis dynamic limits for every planner:"
+  rows:
+    - { label: "Velocity", value: "5.0 m/s" }
+    - { label: "Acceleration", value: "20.0 m/s²" }
+    - { label: "Jerk", value: "100.0 m/s³" }
 
 video:
   type: video_player
@@ -21,19 +27,22 @@ video:
 maps:
   title: "The four maps"
   entries:
-    - { src: assets/img/maps/map_1.png, webp: assets/img/maps/map_1.webp, alt: "Top-down view of map 1: a regular grid of cylinders.", label: "map 1 · regular cylinders" }
-    - { src: assets/img/maps/map_2.png, webp: assets/img/maps/map_2.webp, alt: "Top-down view of map 2: a denser grid of larger cylinders.", label: "map 2 · dense cylinders" }
-    - { src: assets/img/maps/map_3.png, webp: assets/img/maps/map_3.webp, alt: "Top-down view of map 3: U-shaped obstacles opening toward the start.", label: "map 3 · U-shaped traps" }
-    - { src: assets/img/maps/map_4.png, webp: assets/img/maps/map_4.webp, alt: "Top-down view of map 4: deeper U-shaped obstacles with narrow gaps.", label: "map 4 · deep U-traps, narrow gaps" }
+    - { src: assets/img/maps/map_1.png, webp: assets/img/maps/map_1.webp, alt: "Top-down view of map 1: a regular grid of cylinders.", label: "Map 1 · Regular Cylinder Grid" }
+    - { src: assets/img/maps/map_2.png, webp: assets/img/maps/map_2.webp, alt: "Top-down view of map 2: a denser grid of larger cylinders.", label: "Map 2 · Dense Cylinder Grid" }
+    - { src: assets/img/maps/map_3.png, webp: assets/img/maps/map_3.webp, alt: "Top-down view of map 3: U-shaped obstacles opening toward the start.", label: "Map 3 · Structured U-Shaped Traps" }
+    - { src: assets/img/maps/map_4.png, webp: assets/img/maps/map_4.webp, alt: "Top-down view of map 4: deeper U-shaped obstacles with narrow gaps.", label: "Map 4 · Deep U-Shaped Traps & Narrow Gaps" }
 
 comparison:
   title: "A different design point"
-  intro: "How the stack around the ACTOR solver differs from two recent corridor planners. Qualitative only."
-  columns: ["SUPER", "SANDO", "This stack (ACTOR solver)"]
+  intro: "How this stack differs from two recent corridor planners. Qualitative only."
+  columns: ["SUPER", "SANDO", "This stack"]
   rows:
+    - { label: "Solver",               cells: ["L-BFGS (MINCO)", "Gurobi (MIQP)", "ACTOR (ADMM)"] }
+    - { label: "Method",               cells: ["spatio-temporal optimization over one corridor", "mixed-integer quadratic program assigning segments to polytopes", "ADMM over a union of boxes; the assignment is a shortest path inside the iterations"] }
+    - { label: "Objective",            cells: ["minimum snap", "minimum jerk", "minimum snap"] }
     - { label: "Route chosen",         cells: ["before optimization, by a path search", "before optimization, by a path search", "inside the optimization, by the solver"] }
-    - { label: "Corridor constraints", cells: ["soft penalties on the trajectory", "hard constraints", "hard constraints; every result is checked by an execution gate"] }
-    - { label: "Binary variables",     cells: ["none", "yes, mixed-integer", "none; a shortest-path search inside ADMM"] }
+    - { label: "Corridor constraints", cells: ["soft penalties on the trajectory", "hard constraints", "hard constraints"] }
+    - { label: "Binary variables",     cells: ["none", "yes, mixed-integer", "none"] }
     - { label: "Corridor coverage",    cells: ["along one path", "along one path", "the whole local window"] }
     - { label: "In unknown space",     cells: ["exploratory plan plus a backup plan", "corridors inside known free space", "every plan ends at rest in known free space; no backup plan"] }
 

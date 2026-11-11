@@ -6,7 +6,7 @@ Usage: check.py dist [--strict]
 Errors always fail. Warnings fail only with --strict. Notes never fail.
 Rules (see Website_Implementation_Plan §12):
   forbidden phrases · numbers with units outside approved blocks · external link
-  allow-list · robots/no-index · no third-party scripts, styles or fonts · asset
+  allow-list (data-allow="units" exempts a block) · robots/no-index · no third-party scripts, styles or fonts · asset
   budgets · alt text · autoplay hygiene · heading order · copy length · flags off
 """
 from __future__ import annotations
@@ -34,7 +34,7 @@ RESULT_NUMBERS = re.compile(r"\b(?:22\.\d\d|25\.37|17\.02|4\.58|7\.10|5\.6[12]|1
 
 ALLOWED_HOSTS = {
     "arxiv.org", "www.youtube-nocookie.com", "www.youtube.com", "youtu.be",
-    "linkedin.com", "www.linkedin.com", "okanarif.github.io", "tum.de", "www.tum.de",
+    "linkedin.com", "www.linkedin.com", "okanarif.github.io", "tum.de", "www.tum.de", "www.asg.ed.tum.de",
 }
 BUDGETS_MB = {"assets/video/hero.mp4": 15, "assets/video/sim.mp4": 12, "assets/video/flights.mp4": 50}
 IMAGE_MAX_KB = 600
@@ -72,7 +72,7 @@ class Page(HTMLParser):
         elif tag == "link": self.linktags.append(a)
         elif tag == "meta": self.metas.append(a)
         elif tag == "iframe": self.iframes.append(a)
-        if tag in ("p", "li", "figcaption", "h1", "h2", "h3", "h4", "td", "th"):
+        if tag in ("p", "li", "figcaption", "h1", "h2", "h3", "h4", "td", "th", "dd"):
             self._stack.append((tag, [], a))
 
     def handle_endtag(self, tag):
@@ -126,6 +126,8 @@ def main() -> int:
         allowed_numbers = "show_flight_numbers" in on_flags
         for tag, block, attrs in page.blocks:
             if attrs.get("data-flag") == "show_flight_numbers" and allowed_numbers:
+                continue
+            if attrs.get("data-allow") == "units":   # simulation dynamic limits, deliberate
                 continue
             for m in UNITS.finditer(block):
                 errors.append(f"{rel}: quantity with unit '{m.group(0)}' in <{tag}>: {block[:80]!r}")

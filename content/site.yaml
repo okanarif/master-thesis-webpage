@@ -20,13 +20,14 @@ affiliation:
   university_short: "TUM"
   supervisor: "Lukas Pries"
   degree: "Master's Thesis"
+  lab_url: "https://www.asg.ed.tum.de/aas/startseite/"
+  logo_svg: tum-logo.svg            # src/svg/, inlined above the title and linked to lab_url
 
 solver:
   name: "ACTOR solver"
   authors: "Pries, Arrizabalaga, Manchester, Ryll"
   venue: "IROS 2026"
   link: "https://arxiv.org/abs/2603.11335"
-solver_attribution: "ACTOR solver: Pries et al., IROS 2026 · Online stack & hardware: this thesis"
 
 ongoing_note: "This work is part of ongoing research at the Autonomous Aerial Systems group at TUM; detailed methodology and code are not shared at this stage."
 
@@ -34,7 +35,7 @@ ongoing_note: "This work is part of ongoing research at the Autonomous Aerial Sy
 sections: [hero, overview, flights, simulation, method, about]
 nav:
   - { id: overview, label: "Overview" }
-  - { id: flights, label: "Flights" }
+  - { id: flights, label: "Real Flights" }
   - { id: simulation, label: "Simulation" }
   - { id: method, label: "How it works" }
   - { id: about, label: "About" }

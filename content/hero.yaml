@@ -10,6 +10,6 @@ media:
   src: assets/video/hero.mp4
   webm: assets/video/hero.webm
   poster: assets/video/hero-poster.jpg
-  alt: "Loop of two indoor flights through obstacles and one simulated run around a U-shaped obstacle."
+  alt: "Loop of four indoor flights through obstacles: a cylinder field, an escape from inside a U-shaped trap, an S-shaped corridor and a passage through a hole in a wall."
   width: 1600
   height: 900

@@ -1,4 +1,10 @@
 {
+  "assets/img/figures/architecture.png": {
+    "height": 571,
+    "png_kb": 198,
+    "webp_kb": 51,
+    "width": 2400
+  },
   "assets/img/figures/decomposition.png": {
     "height": 886,
     "png_kb": 121,
@@ -11,17 +17,23 @@
     "webp_kb": 29,
     "width": 2400
   },
-  "assets/img/figures/handoff.png": {
-    "height": 934,
-    "png_kb": 219,
-    "webp_kb": 50,
+  "assets/img/figures/perception.png": {
+    "height": 1767,
+    "png_kb": 490,
+    "webp_kb": 154,
     "width": 2400
   },
-  "assets/img/figures/perception.png": {
-    "height": 886,
-    "png_kb": 429,
-    "webp_kb": 137,
-    "width": 2400
+  "assets/img/figures/planner-actor.png": {
+    "height": 664,
+    "png_kb": 25,
+    "webp_kb": 13,
+    "width": 744
+  },
+  "assets/img/figures/planner-sequential.png": {
+    "height": 1864,
+    "png_kb": 71,
+    "webp_kb": 38,
+    "width": 744
   },
   "assets/img/maps/map_1.png": {
     "height": 448,
@@ -48,9 +60,9 @@
     "width": 1100
   },
   "assets/img/photos/drone-detail.jpg": {
-    "height": 1372,
-    "jpg_kb": 221,
-    "webp_kb": 105,
+    "height": 1066,
+    "jpg_kb": 178,
+    "webp_kb": 84,
     "width": 1600
   },
   "assets/img/photos/drone-main.jpg": {

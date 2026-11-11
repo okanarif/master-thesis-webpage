@@ -1,6 +1,5 @@
 {% from "components/media.html.j2" import media %}
 {% from "components/legend.html.j2" import legend %}
-{% from "components/pipeline.html.j2" import pipeline %}
 {% from "components/icon.html.j2" import icon %}
 {% set s = content.method %}
 <section id="method" class="section section--method" aria-labelledby="method-title">
@@ -9,6 +8,11 @@
     <h2 id="method-title" class="section__title">{{ s.title }}</h2>
     <p class="section__note">{{ s.intro }}</p>
     {{ legend(s.legend) }}
+  </div>
+  <div class="container arch" id="method-architecture">
+    <h3 class="section__subtitle">{{ s.architecture.title }}</h3>
+    <div class="arch__text">{% for p in s.architecture.text %}<p>{{ p }}</p>{% endfor %}</div>
+    {{ media(s.architecture.media, uid="method-architecture-media", group="method") }}
   </div>
   <ol class="steps">
     {% for st in s.steps %}
@@ -29,9 +33,19 @@
             {% endfor %}
           </div>
           {% endif %}
-          {% if st.pipelines %}
-          <div class="pipelines">
-            {% for p in st.pipelines %}{{ pipeline(p) }}{% endfor %}
+          {% if st.compare %}
+          <div class="pcompare" role="group" aria-label="{{ st.compare.title }}">
+            {% for it in st.compare.entries %}
+            <figure class="pcompare__item">
+              <a class="figure__zoom pcompare__zoom" href="{{ it.src }}" data-lightbox="planner" data-caption="{{ it.label }}: {{ it.note }}" aria-label="Open larger: {{ it.alt }}">
+                <picture>
+                  <source type="image/webp" srcset="{{ it.webp }}">
+                  <img src="{{ it.src }}" alt="{{ it.alt }}" width="{{ dims(it.src).width }}" height="{{ dims(it.src).height }}" loading="lazy" decoding="async">
+                </picture>
+              </a>
+              <figcaption class="pcompare__caption"><strong>{{ it.label }}</strong><span>{{ it.note }}</span></figcaption>
+            </figure>
+            {% endfor %}
           </div>
           {% endif %}
         </div>

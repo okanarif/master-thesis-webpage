@@ -1,10 +1,11 @@
-{#- Static image with optional WebP source, caption and lightbox zoom. -#}
+{#- Static image with optional WebP source, caption and lightbox zoom. Size comes from the YAML or the asset manifest. -#}
 {% macro figure(m, group="figures", zoom=true) -%}
+{% set d = dims(m.src) if not m.width else m %}
 <figure class="figure">
   {% if zoom %}<a class="figure__zoom" href="{{ m.src }}" data-lightbox="{{ group }}" data-caption="{{ m.caption or m.alt }}" aria-label="Open larger: {{ m.caption or m.alt }}">{% endif %}
   <picture>
     {% if m.webp %}<source type="image/webp" srcset="{{ m.webp }}">{% endif %}
-    <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ m.width }}" height="{{ m.height }}" loading="lazy" decoding="async">
+    <img src="{{ m.src }}" alt="{{ m.alt }}" width="{{ d.width }}" height="{{ d.height }}" loading="lazy" decoding="async">
   </picture>
   {% if zoom %}</a>{% endif %}
   {% if m.caption %}<figcaption class="figure__caption">{{ m.caption }}</figcaption>{% endif %}

@@ -1,5 +1,5 @@
 # Edit decision list for the hero loop. Times are in the source files.
-# Edit here, then run tools/media/10_hero.sh. Keep the total at 20-30 s.
+# Edit here, then run tools/media/10_hero.sh. Keep the total at 20-30 s. Hardware footage only.
 output:
   width: 1600
   height: 900
@@ -9,10 +9,11 @@ output:
   xfade: 0.4          # seconds of cross-fade between segments
   poster_at: 1.0      # seconds into the final loop
 segments:
-  - { src: REAL,  in: "1:24.25", out: "1:31.50", label: "map_4 interior escape" }
-  - { src: REAL,  in: "2:04.50", out: "2:12.00", label: "map_6 3D hole passage" }
-  - { src: SIM_Q4, in: "0:04.00", out: "0:13.00", label: "U-trap route choice" }
+  - { src: REAL, in: "0:05.00", out: "0:11.50", label: "map_1 face-to-face obstacles" }
+  - { src: REAL, in: "1:24.25", out: "1:31.50", label: "map_4 interior escape" }
+  - { src: REAL, in: "1:54.50", out: "2:01.00", label: "map_5 S-shaped corridor" }
+  - { src: REAL, in: "2:04.50", out: "2:12.00", label: "map_6 3D hole passage" }
   - { src: ENDCARD, duration: 3.0 }
 endcard:
   title: "Online ADMM-Based Trajectory Planning for LiDAR-Equipped Quadrotors in Unknown Cluttered Environments"
-  line: "ACTOR solver: Pries et al., IROS 2026  ·  Online stack & hardware: this thesis"
+  line: "Master's Thesis  ·  Autonomous Aerial Systems, TUM"

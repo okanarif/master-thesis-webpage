@@ -90,6 +90,6 @@ echo "[hero] cross-fading ${#FILES[@]} segments"
 ffmpeg -loglevel error -y "${INPUTS[@]}" -filter_complex "$FILTER" -map "[vout]" \
   -crf "$CRF_MP4" "${H264[@]}" "$OUT_MP4"
 ffmpeg -loglevel error -y -i "$OUT_MP4" -crf "$CRF_WEBM" "${VP9[@]}" "$OUT_WEBM"
-ffmpeg -loglevel error -y -ss "$POSTER_AT" -i "$OUT_MP4" -frames:v 1 -q:v 3 "$POSTER"
+ffmpeg -loglevel error -y -ss "$POSTER_AT" -i "$OUT_MP4" -frames:v 1 -vf "scale=1600:-2" -q:v 7 "$POSTER"
 
 report "$OUT_MP4" "$OUT_WEBM" "$POSTER"

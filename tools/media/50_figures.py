@@ -27,12 +27,16 @@ WIDTH = 2400
 DARK_ROW = 90  # mean brightness below this = a full-width border row
 
 FIGURES = {
-    # web name: (source file, which horizontal band to keep: "all" | "bottom-half")
-    "perception": ("Perception_and_Mapping.png", "bottom-half"),
+    # web name: (source file, which horizontal band to keep: "all" | "bottom-half" | "none")
+    # "none" = no border/legend band; only the white margin is trimmed.
+    "perception": ("Perception_and_Mapping.png", "all"),
     "decomposition": ("Decomposition.png", "all"),
     "frontier": ("Frontier_Selection.png", "all"),
-    "handoff": ("Trajectory_Prefix.png", "none"),  # has no border/legend band
+    "architecture": ("ACTOR_Modules.png", "none"),
+    "planner-sequential": ("SUPER_SANDO_Modules.png", "none"),
+    "planner-actor": ("ACTOR_Planner_Module.png", "none"),
 }
+TRIM_PAD = 0.02  # margin kept around the content after trimming, fraction of the larger side
 MAPS = {f"map_{i}": f"Map_{i}_2D.png" for i in range(1, 5)}
 MAP_TITLE_BAND = 0.14  # fraction of the map plots' height taken by the generated title line
 
@@ -52,9 +56,31 @@ def border_rows(im: Image.Image) -> list[int]:
     return [g[0] for g in groups], [g[-1] for g in groups]
 
 
+def flatten(im: Image.Image) -> Image.Image:
+    """Composite transparent figures onto white so RGB export does not turn them black."""
+    if im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info):
+        im = im.convert("RGBA")
+        bg = Image.new("RGBA", im.size, (255, 255, 255, 255))
+        bg.alpha_composite(im)
+        return bg.convert("RGB")
+    return im.convert("RGB")
+
+
+def trim(im: Image.Image) -> Image.Image:
+    """Cut the uniform white margin, keep a small padding."""
+    from PIL import ImageChops
+    bg = Image.new("RGB", im.size, (255, 255, 255))
+    bbox = ImageChops.difference(im, bg).convert("L").point(lambda v: 255 if v > 12 else 0).getbbox()
+    if not bbox:
+        return im
+    pad = int(max(im.size) * TRIM_PAD)
+    l, t, r, b = bbox
+    return im.crop((max(0, l - pad), max(0, t - pad), min(im.width, r + pad), min(im.height, b + pad)))
+
+
 def crop_band(im: Image.Image, mode: str) -> Image.Image:
     if mode == "none":
-        return im
+        return trim(im)
     starts, ends = border_rows(im)
     if len(starts) < 2:
         print(f"  ! no border rows found, keeping full image", file=sys.stderr)
@@ -86,7 +112,7 @@ def main() -> None:
     manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
 
     for stem, (src, mode) in FIGURES.items():
-        im = Image.open(SRC / src)
+        im = flatten(Image.open(SRC / src))
         cropped = crop_band(im, mode)
         info = export(cropped, stem, OUT, WIDTH)
         manifest[f"assets/img/figures/{stem}.png"] = info

@@ -28,10 +28,12 @@ media-hero:
 	bash tools/media/10_hero.sh
 media-flights:
 	bash tools/media/30_flight_clips.sh
+media-handoff:
+	bash tools/media/45_handoff_anim.sh
 media-figures:
 	$(PY) tools/media/50_figures.py
 media-photos:
 	$(PY) tools/media/60_photos.py
 media-og:
 	$(PY) tools/media/70_og_image.py
-media-all: media-sim media-hero media-figures media-photos media-og
+media-all: media-sim media-hero media-handoff media-figures media-photos media-og
