@@ -12,7 +12,7 @@
       {% for row in t.rows %}
       <tr>
         <th scope="row">{{ row.label }}</th>
-        {% for cell in row.cells %}<td data-col="{{ t.columns[loop.index0] }}"{% if loop.last %} class="compare__ours"{% endif %}>{{ cell }}</td>{% endfor %}
+        {% for cell in row.cells %}{% set ref = row.refs[loop.index0] if row.refs else none %}<td data-col="{{ t.columns[loop.index0] }}"{% if loop.last %} class="compare__ours"{% endif %}>{{ cell }}{% if ref %}<a class="cite" href="#ref-{{ ref }}" aria-label="Reference {{ ref_index[ref] }}">[{{ ref_index[ref] }}]</a>{% endif %}</td>{% endfor %}
       </tr>
       {% endfor %}
     </tbody>

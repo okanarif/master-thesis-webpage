@@ -36,9 +36,9 @@ comparison:
   title: "A different design point"
   intro: "How this stack differs from two recent corridor planners. Qualitative only."
   columns: ["SUPER", "SANDO", "This stack"]
-  column_refs: { "SUPER": super, "SANDO": sando, "This stack": actor }   # ids in references.yaml
+  column_refs: { "SUPER": super, "SANDO": sando }   # ids in references.yaml; "This stack" carries no citation
   rows:
-    - { label: "Solver",               cells: ["L-BFGS (MINCO)", "Gurobi (MIQP)", "ACTOR (ADMM)"] }
+    - { label: "Solver",               cells: ["L-BFGS (MINCO)", "Gurobi (MIQP)", "ACTOR (ADMM)"], refs: [~, ~, actor] }
     - { label: "Method",               cells: ["spatio-temporal optimization over one corridor", "mixed-integer quadratic program assigning segments to polytopes", "ADMM over a union of boxes; the assignment is a shortest path inside the iterations"] }
     - { label: "Objective",            cells: ["minimum snap", "minimum jerk", "minimum snap"] }
     - { label: "Route chosen",         cells: ["before optimization, by a path search", "before optimization, by a path search", "inside the optimization, by the solver"] }
